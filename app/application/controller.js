@@ -5,7 +5,6 @@ export default Ember.Controller.extend({
 
   actions: {
     logout() {
-      console.log('logout');
       this.get('session').invalidate();
     }
   }
