@@ -25,6 +25,26 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    //
+    ENV.APP.API_HOST = 'http://localhost:8000';
+    ENV.APP.API_NAMESPACE = 'api';
+
+    ENV['ember-simple-auth'] = {
+      authorizer: 'authorizer:token',
+      crossOriginWhitelist: [process.env.API_HOST],
+    }
+
+    ENV['ember-simple-auth-token'] = {
+      serverTokenEndpoint: 'http://localhost:8000/api-token-auth/',
+      serverTokenRefreshEndpoint: 'http://localhost:8000/api-token-refresh/',
+      refreshAccessTokens: true,
+      timeFactor: 1000,
+      refreshLeeway: 300,
+
+      tokenPropertyName: 'token',
+      authorizationPrefix: 'JWT ',
+      authorizationHeaderName: 'Authorization',
+    }
   }
 
   if (environment === 'test') {

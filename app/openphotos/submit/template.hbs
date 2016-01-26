@@ -1,0 +1,13 @@
+{{ pageNumber }}
+{{#if (eq pageNumber 1) }}
+  {{#form-for model}}
+    {{input-for "title"}}
+    {{input-for "url"}}
+    {{input-for "country"}}
+    {{input-for "city"}}
+
+    <button {{action "createOpenPhoto"}}>Submit</button>
+  {{/form-for}}
+{{/if}}
+
+{{outlet}}

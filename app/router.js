@@ -6,6 +6,11 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('openphoto', function() {});
+  this.route('openphotos', function() {
+    this.route('submit');
+  });
+  this.route('login');
 });
 
 export default Router;
