@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('submit');
   });
   this.route('login');
+  this.route('styleguide');
 });
 
 export default Router;

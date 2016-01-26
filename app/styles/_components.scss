@@ -1,0 +1,80 @@
+/* Buttons */
+
+.cyan.button {
+  @include button-style($cyan, lighten($cyan, 10%), $white);
+}
+
+/* Header */
+
+header {
+  margin-top: rem-calc(25);
+}
+
+.header--submit {
+  margin-top: rem-calc(15);
+}
+
+/* Menu */
+header .menu {
+  margin-top: 15px;
+}
+
+.menu a {
+  color: $redMenu;
+}
+
+.menu li:hover a,
+.menu li:focus a {
+  color: $redMenuActive;
+}
+
+/* Footer */
+footer {
+  padding-top: rem-calc(50);
+  padding-bottom: rem-calc(70);
+
+  background-color: $footerBackground;
+
+}
+
+.footer--organizedby {
+  margin-bottom: rem-calc(20);
+
+  color: #B2B2B2;
+  font-family: $font-helvetica;
+  font-size: rem-calc(14);
+}
+
+.footer--byline {
+  padding-top: rem-calc(17);
+  margin-bottom: rem-calc(20);
+
+  border-top: rem-calc(1) solid #CDCDCD;
+}
+
+.footer--byline,
+.footer--license {
+  color: #B2B2B2;
+  font-family: $font-helvetica;
+  font-size: rem-calc(12);
+}
+
+.footer--navigation {
+  margin-bottom: rem-calc(54);
+}
+
+.footer--navigation--title {
+  color: #989898;
+  font-size: rem-calc(13);
+  font-weight: 700;
+}
+
+.footer--navigation--menu a {
+  font-size: rem-calc(14);
+  line-height: rem-calc(19);
+  color: #ABABAB;
+
+  &:hover {
+    color: darken(#ABABAB, 30%);
+  }
+}
