@@ -8,6 +8,7 @@ export default Ember.Route.extend({
   actions: {
     createOpenPhoto: function() {
       this.get('controller').get('model').save();
+      this.get('controller').set('isSubmitted', true);
     }
   }
 });

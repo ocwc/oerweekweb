@@ -8,6 +8,11 @@
     <dt>Status</dt>
     <dd>{{openphoto.status}}</dd>
   </dl>
+
+  {{#if session.isAuthenticated}}
+    <button {{action "approveOpenPhoto" openphoto}}>Approve</button>
+    <button {{action "rejectOpenPhoto" openphoto}}>Reject</button>
+  {{/if}}
 {{/each}}
 
 {{#link-to "openphotos.submit"}}Submit{{/link-to}}
