@@ -1,30 +1,11 @@
-{{#app-canvas}}
-<header>
-  <div class="row">
-    <div class="small-2 columns">
-      {{#link-to "index"}}<img src="assets/images/logo.svg" />{{/link-to}}
-    </div>
-    <div class="small-8 columns">
-      <ul class="dropdown menu" data-dropdown-menu data-options="clickOpen: true;">
-        <li>{{#link-to "page" "what-is-open-education"}}What is Open Education{{/link-to}}</li>
-        <li>
-          <a href="#">Call for Participation</a>
-          <ul class="menu">
-            <li><a href="#">Call for Participation</a></li>
-            <li><a href="#">Submit your Event</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Projects &amp; Resources</a></li>
-        <li><a href="#">Global Events</a></li>
-        <li><a href="#">Open Photo</a></li>
-      </ul>
-    </div>
-    <div class="small-2 columns">
-      <a href="#" class="button cyan header--submit">Submit</a>
-    </div>
+{{#if isHomepage}}
+  <div class="home-first--container">
+    {{main-navigation}}
+    {{first-container}}
   </div>
-</header>
-{{/app-canvas}}
+{{else}}
+  {{main-navigation}}
+{{/if}}
 
 {{outlet}}
 

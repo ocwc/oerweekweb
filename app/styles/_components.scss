@@ -11,9 +11,9 @@ h1 {
 
 /* Header */
 
-header {
-  margin-top: rem-calc(25);
-  margin-bottom: rem-calc(40);
+header > .row {
+  padding-top: rem-calc(25);
+  padding-bottom: rem-calc(40);
 }
 
 .header--submit {
@@ -169,4 +169,28 @@ footer {
   font-size: rem-calc(15);
   color: #4A4A4A;
   line-height: rem-calc(20);
+}
+
+/* Home */
+.home-first--container {
+  background: linear-gradient(135deg, rgba(250,217,97,1) 21%,rgba(247,107,28,1) 100%);
+}
+
+.graphic--world {
+  margin-left: rem-calc(100);
+  margin-bottom: rem-calc(25);
+}
+
+.home-first--title {
+  margin-top: rem-calc(140);
+  margin-bottom: rem-calc(36);
+
+  color: $white;
+  font-size: rem-calc(20);
+  font-weight: 300;
+  line-height: rem-calc(27);
+}
+
+.home-first--button-left {
+  margin-right: rem-calc(20);
 }
