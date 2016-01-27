@@ -1,12 +1,19 @@
+{{#app-canvas}}
 <header>
   <div class="row">
     <div class="small-2 columns">
       <img src="assets/images/logo.svg" />
     </div>
     <div class="small-8 columns">
-      <ul class="menu">
+      <ul class="dropdown menu" data-dropdown-menu>
         <li><a href="#">About</a></li>
-        <li><a href="#">Call for Participation</a></li>
+        <li>
+          <a href="#">Call for Participation</a>
+          <ul class="menu">
+            <li><a href="#">Call for Participation</a></li>
+            <li><a href="#">Submit your Event</a></li>
+          </ul>
+        </li>
         <li><a href="#">Projects &amp; Resources</a></li>
         <li><a href="#">Global Events</a></li>
         <li><a href="#">Open Photo</a></li>
@@ -17,6 +24,7 @@
     </div>
   </div>
 </header>
+{{/app-canvas}}
 
 <div class="row">
   {{#if session.isAuthenticated}}
