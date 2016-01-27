@@ -1,1 +1,13 @@
+<div class="row">
+  {{#if session.isAuthenticated}}
+    <button {{action 'logout'}}>Logout</button>
+  {{else}}
+    {{#link-to "login"}}Login{{/link-to}}
+  {{/if}}
+
+  {{#link-to "openphotos"}}Open Photos{{/link-to}}
+  {{#link-to "styleguide"}}Style Guide{{/link-to}}
+  {{outlet}}
+</div>
+
 {{outlet}}

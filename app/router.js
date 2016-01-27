@@ -12,6 +12,10 @@ Router.map(function() {
   });
   this.route('login');
   this.route('styleguide');
+
+  this.route('page', {
+    path: '/page/:page_slug'
+  });
 });
 
 export default Router;

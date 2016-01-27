@@ -1,5 +1,10 @@
-/* Buttons */
+/* Typography */
 
+h1 {
+  font-weight: 300;
+}
+
+/* Buttons */
 .cyan.button {
   @include button-style($cyan, lighten($cyan, 10%), $white);
 }
@@ -8,6 +13,7 @@
 
 header {
   margin-top: rem-calc(25);
+  margin-bottom: rem-calc(40);
 }
 
 .header--submit {
@@ -26,6 +32,27 @@ header  .dropdown.menu {
 .menu li:hover a,
 .menu li:focus a {
   color: $redMenuActive;
+}
+
+.menu.is-dropdown-submenu {
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.16)
+}
+
+.menu.is-dropdown-submenu li a {
+  color: $cyan;
+}
+
+.menu.is-dropdown-submenu li:hover a {
+  background-color: $cyan;
+  color: $white;
+}
+
+.is-dropdown-submenu-parent.is-down-arrow > a::after {
+  border-color: $redMenu transparent transparent;
+}
+
+.is-dropdown-submenu-parent.is-down-arrow.is-active > a::after {
+  border-color: $redMenuActive transparent transparent;
 }
 
 /* Footer */
@@ -77,4 +104,69 @@ footer {
   &:hover {
     color: darken(#ABABAB, 30%);
   }
+}
+
+/* Titles */
+.breadcrumbs {
+  font-size: rem-calc(12);
+}
+
+.title--container {
+  margin-bottom: rem-calc(28);
+}
+
+/* Main Content: Boxes */
+.content--container {
+  margin-bottom: rem-calc(40);
+}
+
+.box {
+  margin-bottom: rem-calc(18);
+  padding: rem-calc(25) rem-calc(25) rem-calc(5) rem-calc(25);
+
+  background: $white;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.23);
+  border-radius: rem-calc(8);
+}
+
+.box--with-image {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+  padding-top: rem-calc(15);
+}
+
+.box--image {
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.23);
+}
+
+.box--meta dt {
+  margin-left: rem-calc(22);
+  margin-bottom: rem-calc(15);
+}
+
+.box--meta .fa {
+  display: inline-block;
+  min-width: rem-calc(18);
+}
+
+.box--title {
+  font-size: rem-calc(20);
+}
+
+.box--divider {
+  height: 1px;
+
+  border-bottom: 1px solid $grey;
+
+  margin-top: rem-calc(15);
+  margin-bottom: rem-calc(18);
+  margin-left: rem-calc(-25);
+  margin-right: rem-calc(-25);
+}
+
+.box--content {
+  font-size: rem-calc(15);
+  color: #4A4A4A;
+  line-height: rem-calc(20);
 }

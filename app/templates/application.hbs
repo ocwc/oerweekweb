@@ -2,11 +2,11 @@
 <header>
   <div class="row">
     <div class="small-2 columns">
-      <img src="assets/images/logo.svg" />
+      {{#link-to "index"}}<img src="assets/images/logo.svg" />{{/link-to}}
     </div>
     <div class="small-8 columns">
-      <ul class="dropdown menu" data-dropdown-menu>
-        <li><a href="#">About</a></li>
+      <ul class="dropdown menu" data-dropdown-menu data-options="clickOpen: true;">
+        <li>{{#link-to "page" "what-is-open-education"}}What is Open Education{{/link-to}}</li>
         <li>
           <a href="#">Call for Participation</a>
           <ul class="menu">
@@ -26,17 +26,7 @@
 </header>
 {{/app-canvas}}
 
-<div class="row">
-  {{#if session.isAuthenticated}}
-    <button {{action 'logout'}}>Logout</button>
-  {{else}}
-    {{#link-to "login"}}Login{{/link-to}}
-  {{/if}}
-
-  {{#link-to "openphotos"}}Open Photos{{/link-to}}
-  {{#link-to "styleguide"}}Style Guide{{/link-to}}
-  {{outlet}}
-</div>
+{{outlet}}
 
 <footer>
   <div class="row">
