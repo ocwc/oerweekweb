@@ -177,20 +177,159 @@ footer {
 }
 
 .graphic--world {
-  margin-left: rem-calc(100);
   margin-bottom: rem-calc(25);
+
+  @include breakpoint(small only) {
+    max-width: 80%;
+    margin-left: 10%;
+  }
+
+  @include breakpoint(medium) {
+    margin-left: rem-calc(100);
+  }
 }
 
 .home-first--title {
-  margin-top: rem-calc(140);
-  margin-bottom: rem-calc(36);
-
   color: $white;
   font-size: rem-calc(20);
   font-weight: 300;
   line-height: rem-calc(27);
+
+  @include breakpoint(medium) {
+    margin-top: rem-calc(140);
+    margin-bottom: rem-calc(36);
+  }
 }
 
 .home-first--button-left {
   margin-right: rem-calc(20);
+}
+
+.home-second--container {
+  min-height: rem-calc(310);
+  background: linear-gradient(to right, rgba(48,196,191,1) 0%, rgba(48,196,191,1) 50%, rgba(218,81,27,1) 50%, rgba(218,81,27,1) 100%);
+}
+
+.home-second--container .columns {
+  position: relative;
+  min-height: rem-calc(310);
+}
+
+.home-second--title {
+  color: $white;
+  margin-top: rem-calc(68);
+  margin-bottom: rem-calc(18);
+}
+
+.home-second--container p {
+  color: $white;
+}
+
+.home-second--container .button {
+  position: absolute;
+  bottom: rem-calc(39);
+  left: calc(50% - 75px);
+}
+
+.home-third--container {
+  padding: rem-calc(60) 0;
+  background-color: #74B22F;
+
+  color: $white;
+  font-weight: 300;
+}
+
+.home-third--title {
+  margin-top: rem-calc(55);
+  color: $white;
+  font-size: rem-calc(22);
+  font-weight: 300;
+}
+
+.home-third--social .fa {
+  margin: rem-calc(20) rem-calc(30) rem-calc(30);
+  font-size: rem-calc(30);
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.home-third--social i {
+  color: $white;
+  border-radius: rem-calc(60);
+  padding: rem-calc(10);
+}
+
+.home-third--container .tw i {
+  background-color: #55acee;
+}
+
+.home-third--container .fb i {
+  background-color: #3b5998;
+  width: rem-calc(50);
+}
+
+.home-third--container .yt i {
+  background-color: #cd201f;
+  width: rem-calc(50);
+}
+
+.home-third--downloadables {
+  margin-left: rem-calc(50);
+}
+
+.home-fourth--container {
+  position: relative;
+  overflow: hidden;
+  min-height: rem-calc(390);
+  background-image: radial-gradient(48% -34%, #CCECF3 50%, #82A3AB 90%, #6C8C95 100%);
+}
+
+.home-fourth--container .columns {
+  position: relative;
+  z-index: 10;
+}
+
+.graphic--world-stats {
+  position: absolute;
+  top: -17%;
+  left: calc(50% - 268px);
+
+  z-index: 0;
+}
+
+.home-fourth--title {
+  margin-top: rem-calc(55);
+
+  color: $white;
+  font-size: rem-calc(35);
+  font-weight: 300;
+
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+}
+
+.home-fourth--subtitle {
+  color: $white;
+  font-size: rem-calc(16);
+  font-weight: 300;
+
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+}
+
+.home-fourth--stat-number {
+  margin-top: rem-calc(60);
+  color: $white;
+  font-size: rem-calc(50);
+  font-weight: 700;
+
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+}
+
+.home-fourth--stat-name {
+  color: $white;
+  font-size: rem-calc(25);
+  font-weight: 300;
+
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
 }
