@@ -63,7 +63,25 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.APP.API_HOST = 'http://api.openeducationweek.org';
+    ENV.APP.API_NAMESPACE = 'api';
 
+    ENV['ember-simple-auth'] = {
+      authorizer: 'authorizer:token',
+      crossOriginWhitelist: [process.env.API_HOST],
+    }
+
+    ENV['ember-simple-auth-token'] = {
+      serverTokenEndpoint: 'http://api.openeducationweek.org/api-token-auth/',
+      serverTokenRefreshEndpoint: 'http://api.openeducationweek.org/api-token-refresh/',
+      refreshAccessTokens: true,
+      timeFactor: 7200,
+      refreshLeeway: 300,
+
+      tokenPropertyName: 'token',
+      authorizationPrefix: 'JWT ',
+      authorizationHeaderName: 'Authorization',
+    }
   }
 
   return ENV;
