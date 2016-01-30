@@ -19,7 +19,16 @@ module.exports = function(environment) {
     },
     typekit: {
       kitId: 'nyd6mie',
-    }
+    },
+    metricsAdapters: [
+      {
+        name: 'GoogleAnalytics',
+        environments: ['production'],
+        config: {
+          id: 'UA-4248822-6'
+        }
+      },
+    ],
   };
 
   if (environment === 'development') {
