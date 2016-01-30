@@ -12,6 +12,7 @@ Router.map(function() {
   });
   this.route('login');
   this.route('styleguide');
+  this.route('submit');
 
   this.route('page', {
     path: '/page/:page_slug'

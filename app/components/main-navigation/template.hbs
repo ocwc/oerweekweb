@@ -11,7 +11,7 @@
           <a href="#">Call for Participation</a>
           <ul class="menu">
             <li><a href="#">Call for Participation</a></li>
-            <li><a href="#">Submit your Event</a></li>
+            <li>{{#link-to 'submit'}}Submit your Event{{/link-to}}</li>
           </ul>
         </li>
         <li><a href="#">Projects &amp; Resources</a></li>
@@ -20,7 +20,7 @@
       </ul>
     </div>
     <div class="small-2 columns">
-      <a href="#" class="button cyan header--submit">Submit</a>
+      {{#link-to 'submit' class="button cyan header--submit"}}Submit{{/link-to}}
     </div>
   </div>
 </header>
