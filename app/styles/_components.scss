@@ -134,6 +134,7 @@ footer {
   border-top-right-radius: 0;
 
   padding-top: rem-calc(15);
+  padding-bottom: rem-calc(15);
 }
 
 .box--image {
@@ -169,6 +170,18 @@ footer {
   font-size: rem-calc(15);
   color: #4A4A4A;
   line-height: rem-calc(20);
+}
+
+.box--meta--icon {
+  color: $yellow;
+  font-size: rem-calc(20);
+  margin-right: rem-calc(7);
+}
+
+.box--meta--text {
+  font-size: rem-calc(16);
+  font-weight: 300;
+  line-height: rem-calc(24);
 }
 
 /* Home */

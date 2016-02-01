@@ -1,0 +1,54 @@
+<div class="row title--container">
+  <div class="small-12 columns">
+    <h1>{{uc-words model.post_type}}</h1>
+    {{!-- <span class="breadcrumbs"><a href="#">Main</a>  >  <a href="#">Events</a>  >  Flipping it: Teaching and Learning in an Inverted Classroom</span> --}}
+  </div>
+</div>
+
+<div class="row content--container">
+  <div class="small-4 columns">
+    <div class="box">
+      <dl class="box--meta">
+        <dd>{{fa-icon "clock-o"}} Date and Time</dd>
+        <dt>10. Mar 2015 10:00 AM</dt>
+
+        <dd>{{fa-icon "flag"}} Language</dd>
+        <dt>{{model.form_language}}</dt>
+
+        <dd>{{fa-icon "user"}} Submitter</dd>
+        <dt>John Doe</dt>
+
+        <dd>{{fa-icon "info-circle"}} Institution</dd>
+        <dt>OIKON Ltd. - Institute for applied ecology</dt>
+      </dl>
+    </div>
+
+    <div class="box">
+      <dl class="box--meta">
+        <dd>{{fa-icon "map-marker"}} Location</dd>
+        <dt>
+          <a href="#">
+            Glavna Avenija 1,<br />
+            Zagreb,<br />
+            Croatia
+          </a>
+        </dt>
+      </dl>
+    </div>
+  </div>
+
+  <div class="small-8 columns">
+    <div class="box--image">
+      <img src="http://loremflickr.com/800/410/nature" />
+    </div>
+    <div class="box box--with-image">
+      <h2 class="box--title">{{{model.title}}}</h2>
+      <div class="box--divider"></div>
+      <div class="box--content">
+        {{{model.content}}}
+      </div>
+    </div>
+  </div>
+</div>
+
+{{outlet}}

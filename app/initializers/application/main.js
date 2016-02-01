@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 export function initialize(/* application */) {
   if (Ember.Debug) {
       Ember.Debug.registerDeprecationHandler((message, options, next) => {

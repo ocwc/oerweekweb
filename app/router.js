@@ -17,6 +17,11 @@ Router.map(function() {
   this.route('page', {
     path: '/page/:page_slug'
   });
+  this.route('resources', function() {
+    this.route('resource', {
+      path: '/resources/:resource_slug'
+    });
+  });
 });
 
 export default Router;
