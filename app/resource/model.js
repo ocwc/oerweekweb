@@ -14,5 +14,6 @@ export default DS.Model.extend({
   license: DS.attr('string'),
   link: DS.attr('string'),
   categories: DS.attr(),
-  tags: DS.attr()
+  tags: DS.attr(),
+  image_url: DS.attr('string'),
 });

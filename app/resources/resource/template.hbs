@@ -39,7 +39,9 @@
 
   <div class="small-8 columns">
     <div class="box--image">
-      <img src="http://loremflickr.com/800/410/nature" />
+      {{#if model.image_url}}
+        <img src="{{{model.image_url}}}" alt="{{model.title}}" />
+      {{/if}}
     </div>
     <div class="box box--with-image">
       <h2 class="box--title">{{{model.title}}}</h2>
