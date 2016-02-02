@@ -45,6 +45,7 @@
     "ember-django-adapter": "1.1.2",
     "ember-easy-form": "1.0.0-rc.1",
     "ember-export-application-global": "^1.0.4",
+    "ember-link-action": "0.0.34",
     "ember-metrics": "0.5.3",
     "ember-resolver": "^2.0.3",
     "ember-simple-auth": "1.0.1",

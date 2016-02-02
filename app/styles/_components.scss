@@ -202,15 +202,25 @@ footer {
   }
 }
 
-.home-first--title {
+.home-first--subtitle {
   color: $white;
   font-size: rem-calc(20);
   font-weight: 300;
   line-height: rem-calc(27);
 
   @include breakpoint(medium) {
-    margin-top: rem-calc(140);
     margin-bottom: rem-calc(36);
+  }
+}
+
+.home-first--title {
+  font-size: rem-calc(30);
+  line-height: rem-calc(35);
+  color: $white;
+
+  @include breakpoint(medium) {
+    margin-top: rem-calc(90);
+    margin-bottom: rem-calc(15);
   }
 }
 
@@ -351,4 +361,9 @@ footer {
 .submission-iframe {
   width: 100%;
   height: 1200px;
+}
+
+/* Pagination */
+.pagination-previous a::before, .pagination-previous.disabled::before {
+  display: none;
 }

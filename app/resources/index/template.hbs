@@ -5,7 +5,25 @@
 </div>
 
 <div class="row content--container">
-  {{resource-browser resources=model}}
+  {{resource-pagination
+    page=page
+    hasPreviousPage=hasPreviousPage
+    hasNextPage=hasNextPage
+    previousPage=(action "previousPage")
+    nextPage=(action "nextPage")
+  }}
+
+  {{resource-browser resources=filteredResources}}
+
+  {{#if filteredResources}}
+    {{resource-pagination
+      page=page
+      hasPreviousPage=hasPreviousPage
+      hasNextPage=hasNextPage
+      previousPage=(action "previousPage")
+      nextPage=(action "nextPage")
+    }}
+  {{/if}}
 </div>
 
 {{outlet}}
