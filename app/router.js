@@ -22,6 +22,11 @@ Router.map(function() {
       path: '/resources/:resource_slug'
     });
   });
+  this.route('events', function() {
+    this.route('event', {
+      path: '/events/:event_slug'
+    });
+  });
 });
 
 export default Router;

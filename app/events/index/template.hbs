@@ -1,0 +1,29 @@
+<div class="row title--container">
+  <div class="small-12 columns text-center">
+    <h1>Projects &amp; Resources</h1>
+  </div>
+</div>
+
+<div class="row content--container">
+  {{resource-pagination
+    page=page
+    hasPreviousPage=hasPreviousPage
+    hasNextPage=hasNextPage
+    previousPage=(action "previousPage")
+    nextPage=(action "nextPage")
+  }}
+
+  {{resource-browser resources=filteredResources}}
+
+  {{#if filteredResources}}
+    {{resource-pagination
+      page=page
+      hasPreviousPage=hasPreviousPage
+      hasNextPage=hasNextPage
+      previousPage=(action "previousPage")
+      nextPage=(action "nextPage")
+    }}
+  {{/if}}
+</div>
+
+{{outlet}}
