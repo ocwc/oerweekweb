@@ -19,12 +19,12 @@ Router.map(function() {
   });
   this.route('resources', function() {
     this.route('resource', {
-      path: '/resources/:resource_slug'
+      path: ':resource_slug'
     });
   });
   this.route('events', function() {
     this.route('event', {
-      path: '/events/:event_slug'
+      path: ':event_slug'
     });
   });
   this.route('picture-yourself-open', function() {
