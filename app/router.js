@@ -27,6 +27,9 @@ Router.map(function() {
       path: '/events/:event_slug'
     });
   });
+  this.route('picture-yourself-open', function() {
+    this.route('submit');
+  });
 });
 
 export default Router;
