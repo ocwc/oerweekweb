@@ -1,8 +1,7 @@
 import Ember from 'ember';
 import config from './config/environment';
-import ResetScrollMixin from 'ember-cli-reset-scroll';
 
-const Router = Ember.Router.extend(ResetScrollMixin, {
+const Router = Ember.Router.extend({
   location: config.locationType,
   metrics: Ember.inject.service(),
 
