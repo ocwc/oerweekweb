@@ -6,5 +6,9 @@ export default Ember.Route.extend({
     .then(function(pages) {
       return pages.get('firstObject');
     });
-  }
+  },
+
+  titleToken: function(model) {
+    return model.get('title');
+  },
 });
