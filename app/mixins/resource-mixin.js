@@ -18,4 +18,8 @@ export default Ember.Mixin.create({
   image_url: DS.attr('string'),
   country: DS.attr('string'),
   city: DS.attr('string'),
+  event_time: DS.attr('string'),
+  event_type: DS.attr('string'),
+  event_source_datetime: DS.attr('string'),
+  event_source_timezone: DS.attr('string'),
 });

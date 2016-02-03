@@ -14,11 +14,16 @@
     <div class="box--meta">
       <div>
         <span class="box--meta--icon"><i class="icon-calendar"></i></span>
-        <span class="box--meta--text">10. Mar 2015 02:00 PM</span>
+        <span class="box--meta--text">{{resource.event_source_datetime}}</span>
       </div>
       <div>
+        {{#if (eq resource.even_type "local") }}
+          <span class="box--meta--icon"><i class="icon-globe"></i></span>
+          <span class="box--meta--text">{{resource.city}}, {{resource.country}}</span>
+        {{else}}
         <span class="box--meta--icon"><i class="icon-globe"></i></span>
-        <span class="box--meta--text">Amsterdam</span>
+        <span class="box--meta--text">{{uc-words resource.event_type}}</span>
+        {{/if}}
       </div>
     </div>
     <div class="box--divider"></div>
