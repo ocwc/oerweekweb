@@ -9,32 +9,31 @@
   <div class="small-4 columns">
     <div class="box">
       <dl class="box--meta">
-        <dd><i class="icon-clock"></i> Date and Time</dd>
-        <dt>10. Mar 2015 10:00 AM</dt>
-
         <dd><i class="icon-flag"></i> Language</dd>
         <dt>{{model.form_language}}</dt>
 
         <dd><i class="icon-user"></i> Submitter</dd>
-        <dt>John Doe</dt>
+        <dt>{{model.contact}}</dt>
 
         <dd><i class="icon-info-circled"></i> Institution</dd>
-        <dt>OIKON Ltd. - Institute for applied ecology</dt>
+        <dt>{{model.institution}}</dt>
       </dl>
     </div>
 
-    <div class="box">
-      <dl class="box--meta">
-        <dd><i class="icon-marker"></i> Location</dd>
-        <dt>
-          <a href="#">
-            Glavna Avenija 1,<br />
-            Zagreb,<br />
-            Croatia
-          </a>
-        </dt>
-      </dl>
-    </div>
+    {{#if model.country}}
+      <div class="box">
+        <dl class="box--meta">
+          <dd><i class="icon-location"></i> Location</dd>
+          <dt>
+            {{#if model.city}}
+              {{model.city}},
+            {{/if}}
+
+            {{model.country}}
+          </dt>
+        </dl>
+      </div>
+    {{/if}}
   </div>
 
   <div class="small-8 columns">

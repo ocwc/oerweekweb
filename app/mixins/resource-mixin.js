@@ -16,4 +16,6 @@ export default Ember.Mixin.create({
   categories: DS.attr(),
   tags: DS.attr(),
   image_url: DS.attr('string'),
+  country: DS.attr('string'),
+  city: DS.attr('string'),
 });

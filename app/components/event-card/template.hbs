@@ -1,1 +1,44 @@
+<div class="medium-4 columns">
+  <div class="box--image">
+    {{#if resource.image_url}}
+      {{#link-to "resources.resource" resource.slug}}
+        <img src="{{{resource.image_url}}}" alt="{{resource.title}}" />
+      {{/link-to}}
+    {{/if}}
+  </div>
+  <div class="box box--with-image">
+    <h2 class="box--title">
+      {{#link-to "resources.resource" resource.slug}}{{{resource.title}}}{{/link-to}}
+    </h2>
+    <div class="box--divider"></div>
+    <div class="box--meta">
+      <div>
+        <span class="box--meta--icon"><i class="icon-calendar"></i></span>
+        <span class="box--meta--text">10. Mar 2015 02:00 PM</span>
+      </div>
+      <div>
+        <span class="box--meta--icon"><i class="icon-globe"></i></span>
+        <span class="box--meta--text">Amsterdam</span>
+      </div>
+    </div>
+    <div class="box--divider"></div>
+    <div class="box--content">
+      {{{resource.content_excerpt}}}
+    </div>
+    <div class="box--divider"></div>
+    <div class="box--meta box--meta--small">
+      {{#if resource.form_language}}
+      <div>
+        <span class="box--meta--icon"><i class="icon-flag"></i></span>
+        <span class="box--meta--text">{{{resource.form_language}}}</span>
+      </div>
+      {{/if}}
+      <div>
+        <span class="box--meta--icon"><i class="icon-building"></i></span>
+        <span class="box--meta--text">{{{resource.institution}}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 {{yield}}
