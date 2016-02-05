@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Mixin.create({
   queryParams: ['page'],
+  years: ['2015', '2016'],
+  yearselected: '2016',
 
   page: 1,
   pageCount: Ember.computed('filteredResources.content.meta.count', function(){
@@ -15,9 +17,11 @@ export default Ember.Mixin.create({
     return this.get('page') < this.get('pageCount');
   }),
 
-  filteredResources: Ember.computed('page', 'model', function() {
-    let page = this.get('page');
-    return this.store.query('resource', {page: page});
+  filteredResources: Ember.computed('yearselected', 'page', 'model', function() {
+    let page = this.get('page'),
+        year = this.get('yearselected');
+
+    return this.store.query('resource', {page, year});
   }),
 
   actions: {
@@ -37,6 +41,12 @@ export default Ember.Mixin.create({
           page: this.incrementProperty('page')
         }
       });
+    },
+
+    selectYear(year) {
+      this.set('yearselected', year);
+      this.set('page', 1);
     }
+
   }
 });
