@@ -4,6 +4,19 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="medium-3 columns float-right">
+    <label>Filter by year</label>
+    {{#power-select
+      options=years
+      selected=yearselected
+      searchEnabled=false
+      onchange=(action "selectYear") as |year|}}
+      {{year}}
+    {{/power-select}}
+  </div>
+</div>
+
 <div class="row content--container">
   {{resource-pagination
     page=page

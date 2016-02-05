@@ -21,7 +21,7 @@ export default Ember.Mixin.create({
     let page = this.get('page'),
         year = this.get('yearselected');
 
-    return this.store.query('resource', {page, year});
+    return this.store.query(this.get('modelName'), {page, year});
   }),
 
   actions: {
