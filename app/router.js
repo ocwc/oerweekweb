@@ -5,6 +5,10 @@ const Router = Ember.Router.extend({
   location: config.locationType,
   metrics: Ember.inject.service(),
 
+  redirects: {
+    'what-is-open-education': '/page/what-is-open-education',
+  },
+
   willTransition() {
     this._super(...arguments);
     window.scrollTo(0,0);
