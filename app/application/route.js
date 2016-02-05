@@ -6,5 +6,13 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
    tokens = Ember.makeArray(tokens);
    tokens.push('Open Education Week');
    return tokens.join(' | ');
-  }
+  },
+  headTags: [{
+      type: 'meta',
+      attrs: {
+        property: 'prerender-status-code',
+        content: '404'
+      }
+    },
+  ],
 });

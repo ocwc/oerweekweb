@@ -22,7 +22,7 @@ const Router = Ember.Router.extend({
 
       Ember.get(this, 'metrics').trackPage({ page, title });
     });
-  }
+  },
 });
 
 Router.map(function() {
@@ -50,6 +50,8 @@ Router.map(function() {
   this.route('picture-yourself-open', function() {
     this.route('submit');
   });
+
+  this.route('not-found', { path: '/*path' });
 });
 
 export default Router;
