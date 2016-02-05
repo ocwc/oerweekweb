@@ -47,6 +47,7 @@
     "ember-easy-form": "1.0.0-rc.1",
     "ember-export-application-global": "^1.0.4",
     "ember-link-action": "0.0.34",
+    "ember-lodash": "0.0.6",
     "ember-metrics": "0.5.3",
     "ember-power-select": "0.8.6",
     "ember-resolver": "^2.0.3",

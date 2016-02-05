@@ -8,7 +8,15 @@
       <li class="pagination-previous disabled">Previous <span class="show-for-sr">page</span></li>
     {{/if}}
 
+    {{#each getPreviousPages as |page|}}
+      <li>{{#link-to (query-params page=page)}}{{page}}{{/link-to}}</li>
+    {{/each}}
+
     <li class="current"><span class="show-for-sr">You're on page</span> {{page}}</li>
+
+    {{#each getNextPages as |page|}}
+      <li>{{#link-to (query-params page=page)}}{{page}}{{/link-to}}</li>
+    {{/each}}
 
     {{#if hasNextPage}}
       <li class="pagination-next">
