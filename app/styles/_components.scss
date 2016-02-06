@@ -25,6 +25,12 @@ header  .dropdown.menu {
   margin-top: 15px;
 }
 
+header  .dropdown.menu li {
+  @include breakpoint(small only) {
+    display: block;
+  }
+}
+
 .menu a {
   color: $redMenu;
 }
@@ -230,7 +236,22 @@ footer {
 
 .home-second--container {
   min-height: rem-calc(310);
-  background: linear-gradient(to right, rgba(48,196,191,1) 0%, rgba(48,196,191,1) 50%, rgba(218,81,27,1) 50%, rgba(218,81,27,1) 100%);
+
+  @include breakpoint(medium) {
+    background: linear-gradient(to right, rgba(48,196,191,1) 0%, rgba(48,196,191,1) 50%, rgba(218,81,27,1) 50%, rgba(218,81,27,1) 100%);
+  }
+}
+
+.home--second-left {
+  @include breakpoint(small only) {
+    background-color: rgba(48,196,191,1);
+  }
+}
+
+.home--second-right {
+  @include breakpoint(small only) {
+    background-color: rgba(218,81,27,1);
+  }
 }
 
 .home-second--container .columns {
@@ -267,6 +288,12 @@ footer {
   color: $white;
   font-size: rem-calc(22);
   font-weight: 300;
+}
+
+.home-third--youtube {
+  max-width: 480px;
+  width: 100%;
+  height: auto;
 }
 
 .home-third--social .fa {
