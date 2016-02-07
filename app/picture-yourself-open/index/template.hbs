@@ -4,11 +4,21 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="medium-10 columns medium-centered">
-    <div class="box">
-      <iframe class="submission-iframe" src="http://form.openeducationweek.org/picture-yourself-open-iframe/" seamless="true" frameborder="0"></iframe>
-    </div>
+<div class="row title--container">
+  <div class="small-12 columns text-center">
+    <h1>List of all submissions</h1>
   </div>
 </div>
+
+<div class="row">
+  {{#each model as |photo index|}}
+    <div class="medium-4 columns openphoto--card">
+      {{x-oembed content=photo.content}}
+    </div>
+    {{#if (divisibleBy index 3)}}
+      <div class="medium-12 columns"></div>
+    {{/if}}
+  {{/each}}
+</div>
+
 {{outlet}}

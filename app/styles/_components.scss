@@ -394,3 +394,8 @@ footer {
 .pagination-previous a::before, .pagination-previous.disabled::before {
   display: none;
 }
+
+/* OpenPhotos */
+.openphoto--card {
+  margin-bottom: rem-calc(30);
+}

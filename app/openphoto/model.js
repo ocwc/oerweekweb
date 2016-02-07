@@ -1,5 +1,4 @@
 import DS from 'ember-data';
-// import EmberValidations from 'ember-validations';
 
 export default DS.Model.extend({
   title: DS.attr('string'),
@@ -8,8 +7,8 @@ export default DS.Model.extend({
   city: DS.attr('string'),
   status: DS.attr('string'),
 
-  // validations: {
-  //   title: { presence: true},
-  //   url: { presence: true, length: { minimum: 10 }},
-  // },
+  post_status: DS.attr('string'),
+  post_id: DS.attr('number'),
+  slug: DS.attr('string'),
+  content: DS.attr('string'),
 });
