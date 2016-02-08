@@ -14,7 +14,6 @@ export default Ember.Component.extend({
   didInsertElement() {
     this._super(...arguments);
 
-
     if ( this.$('.twitter-tweet').length > 0 ) {
       this._insertedNode = this._insertScript('//platform.twitter.com/widgets.js');
     } else if ( this.$('.instagram-media').length > 0 ) {
@@ -28,7 +27,6 @@ export default Ember.Component.extend({
   willClearRender: function() {
     this._super(...arguments);
     if ( this._insertedNode ) {
-      console.log(this._insertedNode);
       Ember.$(this._insertedNode).remove();
     }
   }

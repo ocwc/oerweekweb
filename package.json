@@ -46,6 +46,8 @@
     "ember-django-adapter": "1.1.2",
     "ember-easy-form": "1.0.0-rc.1",
     "ember-export-application-global": "^1.0.4",
+    "ember-leaflet": "2.1.2",
+    "ember-leaflet-marker-cluster": "0.0.2",
     "ember-link-action": "0.0.34",
     "ember-lodash": "0.0.6",
     "ember-metrics": "0.5.3",

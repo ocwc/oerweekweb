@@ -4,6 +4,23 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="small-12 columns">
+    {{lat}}, {{lng}}
+    {{#leaflet-map lat=lat lng=lng zoom=zoom maxZoom=6}}
+      {{tile-layer url="http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"}}
+      {{#marker-cluster-layer options=clusterOptions}}
+        {{#each model as |photo index|}}
+          {{#marker-layer lat=photo.lat lng=photo.lng}}
+            {{x-oembed content=photo.content}}
+          {{/marker-layer}}
+        {{/each}}
+      {{/marker-cluster-layer}}
+
+    {{/leaflet-map}}
+  </div>
+</div>
+
 <div class="row title--container">
   <div class="small-12 columns text-center">
     <h1>List of all submissions</h1>

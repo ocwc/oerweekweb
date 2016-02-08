@@ -11,4 +11,8 @@ export default DS.Model.extend({
   post_id: DS.attr('number'),
   slug: DS.attr('string'),
   content: DS.attr('string'),
+
+  lat: DS.attr(),
+  lng: DS.attr(),
+  address: DS.attr('string')
 });
