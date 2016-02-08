@@ -8,6 +8,11 @@
       <li class="pagination-previous disabled">Previous <span class="show-for-sr">page</span></li>
     {{/if}}
 
+    {{#if showPagePrevMargin}}
+      <li>{{#link-to (query-params page=1)}}1{{/link-to}}</li>
+      <li>..</li>
+    {{/if}}
+
     {{#each getPreviousPages as |page|}}
       <li>{{#link-to (query-params page=page)}}{{page}}{{/link-to}}</li>
     {{/each}}
@@ -17,6 +22,11 @@
     {{#each getNextPages as |page|}}
       <li>{{#link-to (query-params page=page)}}{{page}}{{/link-to}}</li>
     {{/each}}
+
+    {{#if showPageNextMargin}}
+      <li>..</li>
+      <li>{{#link-to (query-params page=pageCount)}}{{pageCount}}{{/link-to}}</li>
+    {{/if}}
 
     {{#if hasNextPage}}
       <li class="pagination-next">

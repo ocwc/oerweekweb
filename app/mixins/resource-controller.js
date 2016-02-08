@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import _ from 'lodash/lodash';
 
 export default Ember.Mixin.create({
   queryParams: ['page'],
@@ -13,30 +12,11 @@ export default Ember.Mixin.create({
     }
   }),
 
-  hasPreviousPage: Ember.computed.gt('page', 1),
-  hasNextPage: Ember.computed('page', 'pageCount', function() {
-    return this.get('page') < this.get('pageCount');
-  }),
-
   filteredResources: Ember.computed('yearselected', 'page', 'model', function() {
     let page = this.get('page'),
         year = this.get('yearselected');
 
     return this.store.query(this.get('modelName'), {page, year});
-  }),
-
-  getPreviousPages: Ember.computed('page', function() {
-    let page = this.get('page');
-    if ( page > 1 ) {
-      return _.range(_.max([page - 2, 1]), page);
-    }
-  }),
-
-  getNextPages: Ember.computed('page', 'pageCount', function() {
-    let page = this.get('page'),
-        pageCount = this.get('pageCount');
-
-    return _.range(page+1, _.min([page+3, pageCount+1]));
   }),
 
   actions: {

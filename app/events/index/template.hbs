@@ -20,8 +20,7 @@
 <div class="row content--container">
   {{resource-pagination
     page=page
-    hasPreviousPage=hasPreviousPage
-    hasNextPage=hasNextPage
+    pageCount=pageCount
     previousPage=(action "previousPage")
     nextPage=(action "nextPage")
   }}
@@ -31,8 +30,7 @@
   {{#if filteredResources}}
     {{resource-pagination
       page=page
-      hasPreviousPage=hasPreviousPage
-      hasNextPage=hasNextPage
+      pageCount=pageCount
       previousPage=(action "previousPage")
       nextPage=(action "nextPage")
     }}
