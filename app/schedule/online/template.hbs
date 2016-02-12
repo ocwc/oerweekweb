@@ -4,29 +4,8 @@
   </div>
 </div>
 
+{{x-schedule-tabs}}
 
-<div class="row">
-  <ul class="menu">
-    <li>{{#link-to 'schedule.online' (query-params selectedDate='2016-03-07')}}Monday, 7.3{{/link-to}}</li>
-    <li>{{#link-to 'schedule.online' (query-params selectedDate='2016-03-08')}}Tuesday, 8.3{{/link-to}}</li>
-    <li>{{#link-to 'schedule.online' (query-params selectedDate='2016-03-09')}}Wednesday, 9.3{{/link-to}}</li>
-    <li>{{#link-to 'schedule.online' (query-params selectedDate='2016-03-10')}}Thursday, 10.3{{/link-to}}</li>
-    <li>{{#link-to 'schedule.online' (query-params selectedDate='2016-03-11')}}Friday, 11.3{{/link-to}}</li>
-  </ul>
-</div>
-
-<div class="row">
-  <table class="">
-    <tbody>
-      {{#each filteredEvent as |event index|}}
-        <tr>
-          <td>{{event.country}}{{#if event.city}}, {{event.city}}{{/if}}</td>
-          <td>{{event.institution}}</td>
-          <td>{{#link-to 'events.event' event.slug}}{{{event.title}}}{{/link-to}}</td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
-</div>
+{{x-schedule-table filteredEvent=filteredEvent}}
 
 {{outlet}}

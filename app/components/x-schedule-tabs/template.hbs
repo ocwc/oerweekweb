@@ -1,0 +1,19 @@
+<div class="row">
+  <ul class="menu schedule--menu">
+    {{#active-link}}
+      {{#link-to (query-params selectedDate='2016-03-07')}}Monday, 7.3{{/link-to}}
+    {{/active-link}}
+    {{#active-link}}
+      {{#link-to (query-params selectedDate='2016-03-08')}}Tuesday, 8.3{{/link-to}}
+    {{/active-link}}
+    {{#active-link}}
+      {{#link-to (query-params selectedDate='2016-03-09')}}Wednesday, 9.3{{/link-to}}
+    {{/active-link}}
+    {{#active-link}}
+      {{#link-to (query-params selectedDate='2016-03-10')}}Thursday, 10.3{{/link-to}}
+    {{/active-link}}
+    {{#active-link}}
+      {{#link-to (query-params selectedDate='2016-03-11')}}Friday, 11.3{{/link-to}}
+    {{/active-link}}
+  </ul>
+</div>

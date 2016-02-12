@@ -404,3 +404,31 @@ footer {
   height: rem-calc(500);
   margin-bottom: rem-calc(45);
 }
+
+/* Schedule */
+.schedule--menu {
+  margin-top: rem-calc(40);
+}
+
+.schedule--menu li {
+  padding: rem-calc(3) rem-calc(20);
+  background-color: $cyan;
+}
+
+.schedule--menu li:hover,
+.schedule--menu li.active {
+  background-color: $white;
+}
+
+.schedule--menu li a {
+  color: $white;
+}
+
+.schedule--menu li:hover a,
+.schedule--menu li.active a {
+  color: $cyan;
+}
+
+.schedule--table {
+  margin-bottom: rem-calc(40);
+}
