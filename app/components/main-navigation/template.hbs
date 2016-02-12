@@ -22,7 +22,14 @@
           </ul>
         </li>
         <li>{{#link-to 'resources'}}Projects &amp; Resources{{/link-to}}</li>
-        <li>{{#link-to 'events'}}Global Events{{/link-to}}</li>
+        <li>
+          <a href="#">Events</a>
+          <ul class="menu">
+            <li>{{#link-to 'schedule.local'}}Local Events{{/link-to}}</li>
+            <li>{{#link-to 'schedule.online'}}Online Events{{/link-to}}</li>
+            <li>{{#link-to 'events'}}Browse All{{/link-to}}</li>
+          </ul>
+        </li>
         <li>
           <a href="#">Picture Yourself Open</a>
           <ul class="menu">

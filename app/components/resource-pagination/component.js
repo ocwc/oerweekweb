@@ -12,8 +12,7 @@ export default Ember.Component.extend({
   }),
 
   showPagePrevMargin: Ember.computed('page', 'pageCount', function() {
-    let page = this.get('page'),
-        pageCount = this.get('pageCount');
+    let page = this.get('page');
 
     if ( page - 2 > 2 ) {
       return true;

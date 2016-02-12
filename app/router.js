@@ -56,6 +56,10 @@ Router.map(function() {
   });
 
   this.route('not-found', { path: '/*path' });
+  this.route('schedule', function() {
+    this.route('online');
+    this.route('local');
+  });
 });
 
 export default Router;
