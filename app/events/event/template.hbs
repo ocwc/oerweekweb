@@ -23,13 +23,23 @@
     <div class="box">
       <dl class="box--meta">
         <dd><i class="icon-clock"></i> Date and time</dd>
-        <dt>
-          {{model.event_source_datetime}}<br />
-        </dt>
-        <dd><i class="icon-globe"></i>Timezone</dd>
-        <dt>
-          {{model.event_source_timezone}}
-        </dt>
+        {{#if (eq model.event_type 'webinar')}}
+          <dt>
+            {{moment-format model.event_time 'YYYY-MM-DD HH:mm a'}}
+
+            <span class='box--meta--notice'>
+                Time of event is adjusted to your local time. Please double check it on events home page.
+            </span>
+          </dt>
+        {{else}}
+          <dt>
+            {{model.event_source_datetime}}<br />
+          </dt>
+          <dd><i class="icon-globe"></i>Timezone</dd>
+          <dt>
+            {{model.event_source_timezone}}
+          </dt>
+        {{/if}}
       </dl>
     </div>
 

@@ -190,6 +190,13 @@ footer {
   line-height: rem-calc(24);
 }
 
+.box--meta--notice {
+  display: block;
+  margin-top: rem-calc(24);
+  font-weight: normal;
+  font-size: rem-calc(14);
+}
+
 /* Home */
 .home-first--container {
   background: linear-gradient(135deg, rgba(250,217,97,1) 21%,rgba(247,107,28,1) 100%);

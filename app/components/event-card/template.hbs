@@ -14,7 +14,12 @@
     <div class="box--meta">
       <div>
         <span class="box--meta--icon"><i class="icon-calendar"></i></span>
-        <span class="box--meta--text">{{resource.event_source_datetime}}</span>
+        {{#if resource.event_time}}
+          {{moment-format resource.event_time 'YYYY-MM-DD HH:mm a'}}
+        {{else}}
+          <span class="box--meta--text">{{resource.event_source_datetime}}</span>
+        {{/if}}
+
       </div>
       <div>
         {{#if (eq resource.even_type "local") }}

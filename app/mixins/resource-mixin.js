@@ -22,5 +22,5 @@ export default Ember.Mixin.create({
   event_time: DS.attr('string'),
   event_type: DS.attr('string'),
   event_source_datetime: DS.attr('string'),
-  event_source_timezone: DS.attr('string'),
+  event_source_timezone: DS.attr('string')
 });
