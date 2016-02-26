@@ -14,7 +14,7 @@
     <div class="box--meta">
       <div>
         <span class="box--meta--icon"><i class="icon-calendar"></i></span>
-        {{#if resource.event_time}}
+        {{#if (eq model.event_type 'webinar')}}
           {{moment-format resource.event_time 'YYYY-MM-DD HH:mm a'}}
         {{else}}
           <span class="box--meta--text">{{resource.event_source_datetime}}</span>
