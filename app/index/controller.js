@@ -20,6 +20,10 @@ export default Ember.Controller.extend({
     });
   }),
 
+  slicedOpenPhoto: Ember.computed('model', function(){
+    return this.get('model').slice(0, 3);
+  }),
+
   actions: {
     selectDate(selectedTab, event_type) {
       if ( event_type === 'online') {

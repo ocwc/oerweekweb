@@ -121,3 +121,28 @@
     {{outlet}}
   </div>
 </div>
+
+<div class="home-seventh--container container">
+  <div class="row">
+    <div class="row">
+      <div class="small-12 columns text-center">
+          <h1>Picture Yourself Open</h1>
+          <p>Get creative and show your support for Open.  We want to cover the world with openness by covering this map with photos.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 text-center">
+        {{#link-to 'picture-yourself-open' class='button'}}See All Submissions{{/link-to}}
+      </div>
+    </div>
+
+    <div class="row">
+      {{#each slicedOpenPhoto as |photo index|}}
+        <div class="medium-4 columns openphoto--card">
+          {{x-oembed content=photo.content}}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

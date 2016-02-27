@@ -411,6 +411,20 @@ footer {
   margin-top: rem-calc(50);
 }
 
+.home-seventh--container {
+  margin-top: rem-calc(10);
+  padding-top: rem-calc(30);
+  padding-bottom: rem-calc(20);
+
+  background-color: #7AA6B1;
+  color: $white;
+}
+
+.home-seventh--container h1 {
+  margin-bottom: rem-calc(30);
+  color: $white;
+}
+
 /* Submission iframe */
 .submission-iframe {
   width: 100%;
