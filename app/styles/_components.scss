@@ -313,6 +313,11 @@ footer {
   height: 270px;
 }
 
+.home-third--social {
+  padding-top: rem-calc(16);
+  padding-bottom: rem-calc(16);
+}
+
 .home-third--social .fa {
   margin: rem-calc(20) rem-calc(30) rem-calc(30);
   font-size: rem-calc(30);
@@ -399,6 +404,11 @@ footer {
   font-weight: 300;
 
   text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
+}
+
+.home-fifth--container,
+.home-sixth--container {
+  margin-top: rem-calc(50);
 }
 
 /* Submission iframe */

@@ -17,9 +17,11 @@
 <div class="home-third--container">
   <div class="row">
     <div class="medium-6 columns">
+
       {{#twitter-feed}}
         <a class="twitter-timeline" href="https://twitter.com/hashtag/openeducationwk" data-widget-id="692740529117884416">#openeducationwk Tweets</a>
       {{/twitter-feed}}
+
     </div>
     <div class="medium-6 columns text-center">
       <iframe class="home-third--youtube" src="https://www.youtube-nocookie.com/embed/F7SLPskTPvc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
@@ -42,9 +44,9 @@
   </div>
 </div>
 
+{{!--
 <div class="home-fourth--container">
   <div class="row">
-
 
     <div class="medium-6 columns small-centered text-center">
       <h2 class="home-fourth--title">Thank you to all who contributed to Open Education Week 2015</h2>
@@ -79,5 +81,36 @@
     </div>
 
     <img src="assets/images/world-stats.svg" class="graphic--world-stats" />
+  </div>
+</div>
+--}}
+
+<div class="home-fifth--container container">
+  <div class="row">
+    <div class="row">
+      <div class="small-12 columns text-center">
+          <h1>Schedule of Local Events</h1>
+      </div>
+    </div>
+
+    {{x-schedule-action-tabs selectDate='selectDate'}}
+    {{x-schedule-table filteredEvent=filteredLocalEvent}}
+
+    {{outlet}}
+  </div>
+</div>
+
+<div class="home-sixth--container container">
+  <div class="row">
+    <div class="row">
+      <div class="small-12 columns text-center">
+          <h1>Schedule of Online Events</h1>
+      </div>
+    </div>
+
+    {{x-schedule-action-tabs selectDate='selectDate' event_type='online'}}
+    {{x-schedule-table filteredEvent=filteredOnlineEvent}}
+
+    {{outlet}}
   </div>
 </div>
