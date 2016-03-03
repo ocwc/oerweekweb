@@ -17,7 +17,7 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    error(error, transition) {
+    error(error) {
       if (error) {
         return this.transitionTo('/not-found');
         // transition.retry();
