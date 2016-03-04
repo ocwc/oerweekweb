@@ -60,6 +60,7 @@ Router.map(function() {
     this.route('online');
     this.route('local');
   });
+  this.route('open-education-initiatives');
 });
 
 export default Router;
