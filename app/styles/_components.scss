@@ -429,6 +429,32 @@ footer {
   color: $white;
 }
 
+.home-eight--container {
+  padding-top: rem-calc(45);
+  padding-bottom: rem-calc(45);
+  background-color: darken($red, 10%);
+}
+
+.home-eight--container h1,
+.home-eight--container p {
+  color: $white;
+}
+
+.home-eight--container .form-group {
+  margin-top: rem-calc(45);
+}
+
+.link-white {
+  color: $white;
+  text-decoration: underline;
+}
+
+.link-white:hover,
+.link-white:active {
+  color: $white;
+  text-decoration: none;
+}
+
 /* Submission iframe */
 .submission-iframe {
   width: 100%;
