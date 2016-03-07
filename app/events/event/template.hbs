@@ -23,12 +23,12 @@
     <div class="box">
       <dl class="box--meta">
         <dd><i class="icon-clock"></i> Date and time</dd>
-        {{#if (eq model.event_type 'webinar')}}
+        {{#if (or (eq model.event_type 'webinar') (eq model.event_type 'online'))}}
           <dt>
             {{moment-format model.event_time 'YYYY-MM-DD HH:mm a'}}
 
             <span class='box--meta--notice'>
-                Time of event is adjusted to your local time. Please double check it on events home page.
+                Time of event is adjusted to your local time. Please double check it on the site of the event.
             </span>
           </dt>
         {{else}}
