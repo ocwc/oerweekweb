@@ -209,13 +209,16 @@ footer {
 .graphic--world {
   margin-bottom: rem-calc(25);
 
+  width: 130%;
+  max-width: 130%;
+
   @include breakpoint(small only) {
     max-width: 80%;
     margin-left: 10%;
   }
 
   @include breakpoint(medium) {
-    margin-left: rem-calc(100);
+    // margin-left: rem-calc(100);
   }
 }
 
@@ -236,7 +239,7 @@ footer {
   color: $white;
 
   @include breakpoint(medium) {
-    margin-top: rem-calc(90);
+    margin-top: rem-calc(30);
     margin-bottom: rem-calc(15);
   }
 }
