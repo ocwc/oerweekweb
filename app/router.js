@@ -27,6 +27,7 @@ const Router = Ember.Router.extend({
       Ember.get(this, 'metrics').trackPage({ page, title });
     });
   },
+  rootURL: config.rootURL
 });
 
 Router.map(function() {
