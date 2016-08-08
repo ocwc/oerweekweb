@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="medium-6 columns">
+    {{validated-input model=model valuePath='firstname' label='First Name *'}}
+  </div>
+  <div class="medium-6 columns">
+    {{validated-input model=model valuePath='lastname' label='Last Name *'}}
+  </div>
+</div>
+
+{{validated-input model=model valuePath='email' label='Email *'}}
+{{validated-input model=model valuePath='institution' label='Institution or Organization'}}
+{{validated-input model=model valuePath='website' label='Website of institution or organization'}}
+{{validated-input model=model valuePath='country' label='Country *'}}
+{{validated-input model=model valuePath='city' label='City *'}}
+{{validated-input model=model valuePath='language' label='Language *'}}
+
+{{validated-radio
+  label='Type of Contribution *'
+  model=model
+  valuePath='contributionType'
+  values=(array
+            (hash value='video' label='Video')
+            (hash value='resource' label='Informational resource')
+            (hash value='event' label='Local or Online Event or Webinar')
+            (hash value='discussion' label='Online discussion idea')
+            (hash value='other' label='Other')
+         )
+}}

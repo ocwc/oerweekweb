@@ -1,0 +1,27 @@
+{{!-- BEGIN-SNIPPET validated-input --}}
+<div class="form-group">
+  {{#if label}}
+    <label for="{{concat elementId '-name'}}">{{label}}</label>
+  {{/if}}
+  {{input type=type value=value placeholder=placeholder class="form-control" name=valuePath id=(concat elementId '-name')}}
+  {{#if isValid}}
+    <span>Valid!</span>
+    <span class="valid-input fa fa-check"></span>
+  {{/if}}
+
+  <div class="input-error">
+    {{#if showErrorMessage}}
+      <div class="error">
+        {{v-get model valuePath 'message'}}
+      </div>
+    {{/if}}
+
+    {{#if showWarningMessage}}
+      <div class="warning">
+        {{v-get model valuePath 'warningMessage'}}
+      </div>
+    {{/if}}
+  </div>
+</div>
+{{log showErrorMessage}}
+{{!-- END-SNIPPET --}}

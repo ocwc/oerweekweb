@@ -2,7 +2,7 @@
 <header>
   <div class="row">
     <div class="medium-2 columns">
-      {{#link-to "index"}}<img src="assets/images/logo.svg" />{{/link-to}}
+      {{#link-to "index"}}<img src="{{rootURL}}assets/images/logo.svg" />{{/link-to}}
     </div>
     <div class="medium-9 columns">
       <ul class="dropdown menu" data-dropdown-menu data-options="clickOpen: true;">
@@ -16,14 +16,14 @@
           </ul>
         </li>
 
-        {{!-- <li>
+        <li>
           <a href="#">Call for Participation</a>
           <ul class="menu">
             <li>{{#link-to "page" "call-for-participation"}}Call for Participation{{/link-to}}</li>
             <li>{{#link-to 'submit'}}Submit your Event{{/link-to}}</li>
             <li>{{#link-to "page" "faq"}}FAQ{{/link-to}}</li>
           </ul>
-        </li> --}}
+        </li>
 
         <li>{{#link-to 'resources'}}Projects &amp; Resources{{/link-to}}</li>
 
@@ -45,7 +45,7 @@
             <li>{{#link-to "picture-yourself-open.submit"}}Submit your own{{/link-to}}</li>
           </ul>
         </li>
-        <li>{{#link-to "open-education-initiatives"}}Interviews with Open Educators{{/link-to}}</li>
+        {{!-- <li>{{#link-to "open-education-initiatives"}}Interviews with Open Educators{{/link-to}}</li> --}}
       </ul>
     </div>
     {{!-- <div class="medium-1 columns">

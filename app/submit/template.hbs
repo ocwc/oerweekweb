@@ -1,7 +1,11 @@
 <div class="row">
   <div class="medium-10 columns medium-centered">
     <div class="box">
-      <iframe class="submission-iframe" src="http://form.openeducationweek.org/submission-iframe/" seamless="true" frameborder="0"></iframe>
+      {{form-submission-01-intro}}
+      {{form-submission-02-basic model=model}}
+      {{form-submission-03-video model=model}}
+
+      <button {{action 'formSubmit'}}>Submit</button>
     </div>
   </div>
 </div>
