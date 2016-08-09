@@ -31,6 +31,13 @@
   color: rgb(255, 165, 31);
 }
 
+.validated-input textarea {
+  width: 100%;
+
+  margin-bottom: 15px;
+
+  min-height: rem-calc(120);
+}
 
 .ember-power-select-trigger {
   margin-bottom: rem-calc(15);

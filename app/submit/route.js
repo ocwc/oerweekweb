@@ -2,7 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model(params) {
-    return this.store.createRecord('submission');
+    return this.store.createRecord('submission', {
+      'contributiontype': 'event_local'
+    });
   },
 
   resetController(controller, isExiting) {

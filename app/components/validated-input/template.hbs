@@ -3,7 +3,13 @@
   {{#if label}}
     <label for="{{concat elementId '-name'}}">{{label}}</label>
   {{/if}}
-  {{input type=type value=value placeholder=placeholder class="form-control" name=valuePath id=(concat elementId '-name')}}
+
+  {{#if (eq type 'textarea') }}
+    {{textarea type=type value=value placeholder=placeholder class="form-control" name=valuePath id=(concat elementId '-name')}}
+  {{else}}
+    {{input type=type value=value placeholder=placeholder class="form-control" name=valuePath id=(concat elementId '-name')}}
+  {{/if}}
+
   {{#if isValid}}
     <span class="valid-input fa fa-check"></span>
   {{/if}}
