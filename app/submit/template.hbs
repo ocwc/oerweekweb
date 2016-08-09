@@ -1,7 +1,7 @@
 <div class="row">
   <div class="medium-10 columns medium-centered">
     <div class="box">
-{{!--
+
       {{#if (eq wizard.intro false) }}
         <h1>Introduction</h1>
 
@@ -12,15 +12,12 @@
 
         <button class="button" {{action 'nextPage' 'intro'}}>Next Page</button>
       {{/if}}
- --}}
 
       {{#if (and
               (eq wizard.basic false)
-
+              wizard.intro
             )
       }}
-
-      {{!-- wizard.intro --}}
         <div class="row">
           <div class="medium-6 columns">
             {{validated-input model=model valuePath='firstname' label='First Name *'}}
