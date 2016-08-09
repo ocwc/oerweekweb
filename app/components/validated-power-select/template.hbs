@@ -1,18 +1,17 @@
 {{!-- BEGIN-SNIPPET validated-input --}}
 <div class="form-group">
   {{#if label}}
-    <label>{{label}}</label>
+    <label for="{{concat elementId '-name'}}">{{label}}</label>
   {{/if}}
-  {{#each values as |radio|}}
 
-    {{#radio-button
-      value=radio.value
-      groupValue=radioValue
-      changed=(action 'radioChanged')
-    }}
-      {{radio.label}}
-    {{/radio-button}}
-  {{/each}}
+  {{#power-select
+    options=options
+    onchange=(action 'valueChanged')
+    selected=selected
+    as |option|
+  }}
+    {{option}}
+  {{/power-select}}
 
   {{#if isValid}}
     <span class="valid-input fa fa-check"></span>

@@ -9,7 +9,19 @@ var Validations = buildValidations({
   lastname: [
     validator('presence', true),
   ],
-  contributionType: [
+  email: [
+    validator('presence', true),
+  ],
+  country: [
+    validator('presence', true),
+  ],
+  city: [
+    validator('presence', true),
+  ],
+  language: [
+    validator('presence', true),
+  ],
+  contributiontype: [
     validator('presence', true),
   ]
 }, {
@@ -21,6 +33,17 @@ export default DS.Model.extend(Validations, {
   lastname: DS.attr('string'),
   institution: DS.attr('string'),
   email: DS.attr('string'),
-  contributionType: DS.attr('string'),
-  videoType: DS.attr('string')
+  country: DS.attr('string'),
+  city: DS.attr('string'),
+  language: DS.attr('string'),
+  contributiontype: DS.attr('string'),
+
+  localeventtype: DS.attr('string'),
+  title: DS.attr('string'),
+  facilitator: DS.attr('string'),
+  description: DS.attr('string'),
+  datetime: DS.attr('string'),
+  timezone: DS.attr('string'),
+  directions: DS.attr('string'),
+  archive: DS.attr('boolean')
 });

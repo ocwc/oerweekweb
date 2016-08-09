@@ -1,22 +1,26 @@
 <div class="row">
   <div class="medium-10 columns medium-centered">
     <div class="box">
+{{!--
       {{#if (eq wizard.intro false) }}
         <h1>Introduction</h1>
 
         <p>Thank you for your interest in contributing to Open Education Week. Open Education Week is a celebration of the global Open Education Movement. Its purpose is to raise awareness about the movement and its impact on teaching and learning worldwide. Participation in all events and use of all resources is free and open to everyone.</p>
         <p>Please use this form to provide information on your contribution or event. Submitting your event through this form will allow us to show the strength of commitment to openness around the world.  Your event will be featured in the Open Education Week schedule, on the world map of events, and will be sent through Open Education Week social media channels.  You’ll also receive the official Open Education Week badge to display on your webpage or event promotional materials.</p>
         <p>We welcome multiple submissions on any aspect of open education in any language. All contributions must have an open license that allows for reuse and modification, such as CC-BY. Contributions will be reviewed by the Open Education Week organizing committee before being posted to the website. Submissions that are not appropriate for Open Education Week will not be posted. </p>
-        <p>To ensure your contribution is featured during Open Education Week, please complete this form no later than 28 February 2017. Please fill out one form per submission. </p>
+        <p>To ensure your contribution is featured during Open Education Week, please complete this form no later than <strong>28 February 2017</strong>. Please fill out one form per submission. </p>
 
         <button class="button" {{action 'nextPage' 'intro'}}>Next Page</button>
       {{/if}}
+ --}}
 
       {{#if (and
               (eq wizard.basic false)
-              wizard.intro
+
             )
       }}
+
+      {{!-- wizard.intro --}}
         <div class="row">
           <div class="medium-6 columns">
             {{validated-input model=model valuePath='firstname' label='First Name *'}}
@@ -29,30 +33,65 @@
         {{validated-input model=model valuePath='email' label='Email *'}}
         {{validated-input model=model valuePath='institution' label='Institution or Organization'}}
         {{validated-input model=model valuePath='website' label='Website of institution or organization'}}
-        {{validated-input model=model valuePath='country' label='Country *'}}
+
+        {{validated-power-select model=model options=countries valuePath='country' label='Country *'}}
+
         {{validated-input model=model valuePath='city' label='City *'}}
         {{validated-input model=model valuePath='language' label='Language *'}}
 
         {{validated-radio
           label='Type of Contribution *'
           model=model
-          valuePath='contributionType'
+          valuePath='contributiontype'
           values=(array
-                    (hash value='video' label='Video')
+                    (hash value='event_local' label='Local Event')
+                    (hash value='event_online' label='Online Event or Webinar')
                     (hash value='resource' label='Informational resource')
-                    (hash value='event' label='Local or Online Event or Webinar')
-                    (hash value='discussion' label='Online discussion idea')
+                    (hash value='project' label='Project')
                     (hash value='other' label='Other')
                  )
         }}
-
-        <button class="button" {{action 'nextPage'}}>Next Page</button>
+        <button class="button" {{action 'nextPage' 'basic'}}>Next Page</button>
       {{/if}}
 
-      {{!-- {{if wizard.basic}}
-      {{form-submission-03-video model=model}} --}}
+      {{#if (and
+              (eq wizard.basic true)
+              (eq model.contributiontype 'event_local')
+              wizard.intro
+            )
+      }}
 
-      <button {{action 'formSubmit'}}>Submit</button>
+        {{validated-radio
+          label='Type of Local Event *'
+          model=model
+          valuePath='localeventtype'
+          values=(array
+                    (hash value='conference/forum/discussion' label='Conference/forum/discussion')
+                    (hash value='workshop' label='Workshop')
+                 )
+        }}
+
+        {{validated-input model=model valuePath='title' label='Title of Event *'}}
+        {{validated-input model=model valuePath='facilitator' label='Facilitator *' type='textbox'}}
+        {{validated-input model=model valuePath='description' label='Short description of the event *' type='textbox'}}
+
+        {{validated-input model=model valuePath='datetime' label='Date and Time *'}}
+        {{validated-input model=model valuePath='timezone' label='Timezone *'}}
+        {{validated-input model=model valuePath='directions' label='Directions *'}}
+
+        {{validated-radio
+          label='Will you have archived video from the event *'
+          model=model
+          valuePath='archive'
+          values=(array
+                    (hash value='1' label='Yes')
+                    (hash value='0' label='No')
+                 )
+        }}
+
+      {{/if}}
+
+      {{!-- <button {{action 'formSubmit'}}>Submit</button> --}}
     </div>
   </div>
 </div>

@@ -23,6 +23,7 @@ export default Ember.Component.extend({
   validation: null,
   isTyping: false,
   radioValue: '',
+  selected: '',
 
   init() {
     this._super(...arguments);
@@ -46,8 +47,9 @@ export default Ember.Component.extend({
   }),
 
   actions: {
-    radioChanged(val) {
+    valueChanged(val) {
       this.get('model').set(this.get('valuePath'), val);
+      this.set('selected', val);
     }
   }
 });
