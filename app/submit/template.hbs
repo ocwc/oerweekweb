@@ -1,9 +1,56 @@
 <div class="row">
   <div class="medium-10 columns medium-centered">
     <div class="box">
-      {{form-submission-01-intro}}
-      {{form-submission-02-basic model=model}}
-      {{form-submission-03-video model=model}}
+      {{#if (eq wizard.intro false) }}
+        <h1>Introduction</h1>
+
+        <p>Thank you for your interest in contributing to Open Education Week. Open Education Week is a celebration of the global Open Education Movement. Its purpose is to raise awareness about the movement and its impact on teaching and learning worldwide. Participation in all events and use of all resources is free and open to everyone.</p>
+        <p>Please use this form to provide information on your contribution or event. Submitting your event through this form will allow us to show the strength of commitment to openness around the world.  Your event will be featured in the Open Education Week schedule, on the world map of events, and will be sent through Open Education Week social media channels.  You’ll also receive the official Open Education Week badge to display on your webpage or event promotional materials.</p>
+        <p>We welcome multiple submissions on any aspect of open education in any language. All contributions must have an open license that allows for reuse and modification, such as CC-BY. Contributions will be reviewed by the Open Education Week organizing committee before being posted to the website. Submissions that are not appropriate for Open Education Week will not be posted. </p>
+        <p>To ensure your contribution is featured during Open Education Week, please complete this form no later than 28 February 2017. Please fill out one form per submission. </p>
+
+        <button class="button" {{action 'nextPage' 'intro'}}>Next Page</button>
+      {{/if}}
+
+      {{#if (and
+              (eq wizard.basic false)
+              wizard.intro
+            )
+      }}
+        <div class="row">
+          <div class="medium-6 columns">
+            {{validated-input model=model valuePath='firstname' label='First Name *'}}
+          </div>
+          <div class="medium-6 columns">
+            {{validated-input model=model valuePath='lastname' label='Last Name *'}}
+          </div>
+        </div>
+
+        {{validated-input model=model valuePath='email' label='Email *'}}
+        {{validated-input model=model valuePath='institution' label='Institution or Organization'}}
+        {{validated-input model=model valuePath='website' label='Website of institution or organization'}}
+        {{validated-input model=model valuePath='country' label='Country *'}}
+        {{validated-input model=model valuePath='city' label='City *'}}
+        {{validated-input model=model valuePath='language' label='Language *'}}
+
+        {{validated-radio
+          label='Type of Contribution *'
+          model=model
+          valuePath='contributionType'
+          values=(array
+                    (hash value='video' label='Video')
+                    (hash value='resource' label='Informational resource')
+                    (hash value='event' label='Local or Online Event or Webinar')
+                    (hash value='discussion' label='Online discussion idea')
+                    (hash value='other' label='Other')
+                 )
+        }}
+
+        <button class="button" {{action 'nextPage'}}>Next Page</button>
+      {{/if}}
+
+      {{!-- {{if wizard.basic}}
+      {{form-submission-03-video model=model}} --}}
 
       <button {{action 'formSubmit'}}>Submit</button>
     </div>

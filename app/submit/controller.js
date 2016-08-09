@@ -1,33 +1,38 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  wizard: {
+    'intro': false,
+    'basic': false,
+    'video': false
+  },
+
+  didValidate: false,
+
   actions: {
+    nextPage(prop) {
+      console.log(prop);
+
+      if ( prop === 'intro' ) {
+        this.set(`wizard.${prop}`, true);
+      } else {
+        var model = this.get('model');
+
+        model.validate().then(({
+          model,
+          validations
+        }) => {
+          console.log(validations.get('isValid'));
+          if (validations.get('isValid')) {
+            this.set(`wizard.${prop}`, true);
+          }
+          this.set('didValidate', true);
+        });
+      };
+    },
+
     formSubmit() {
-      let model = this.get('model');
-      // const { model, validations } = this.get('model').validate();
-      // this.get('model').validate();
-      //
 
-      model.validate().then(({
-        model,
-        validations
-      }) => {
-        console.log('isValid', validations.get('isValid'));
-        console.log('errors', validations.get('errors'));
-        console.log(model.validations.attrs);
-        if (validations.get('isValid')) {
-          this.setProperties({
-            showAlert: false,
-            isRegistered: true,
-            showCode: false
-          });
-        } else {
-          this.set('showAlert', true);
-        }
-        this.set('didValidate', true);
-      }, (errors) => {
-
-      });
     }
   }
 });
