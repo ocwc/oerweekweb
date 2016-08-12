@@ -23,6 +23,26 @@ var Validations = buildValidations({
   ],
   contributiontype: [
     validator('presence', true),
+  ],
+
+
+  title: [
+    validator('presence', true),
+  ],
+  description: [
+    validator('presence', true),
+  ],
+  datetime: [
+    validator('presence', true),
+  ],
+  directions: [
+    validator('presence', true),
+  ],
+  archive: [
+    validator('presence', true),
+  ],
+  license: [
+    validator('presence', true),
   ]
 }, {
   debounce: 500
@@ -40,10 +60,16 @@ export default DS.Model.extend(Validations, {
 
   localeventtype: DS.attr('string'),
   title: DS.attr('string'),
-  facilitator: DS.attr('string'),
   description: DS.attr('string'),
   datetime: DS.attr('string'),
-  timezone: DS.attr('string'),
+
   directions: DS.attr('string'),
-  archive: DS.attr('boolean')
+  url: DS.attr('string'),
+  archive: DS.attr('boolean'),
+
+  is_primary: DS.attr('boolean'),
+  is_higher: DS.attr('boolean'),
+  is_community: DS.attr('boolean'),
+
+  license: DS.attr('string'),
 });

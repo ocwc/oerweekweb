@@ -18,6 +18,7 @@
               wizard.intro
             )
       }}
+        <h2>General Information (Step 1/2)</h2>
         <div class="row">
           <div class="medium-6 columns">
             {{validated-input model=model valuePath='firstname' label='First Name *'}}
@@ -34,7 +35,6 @@
         {{validated-power-select model=model options=countries valuePath='country' label='Country *'}}
 
         {{validated-input model=model valuePath='city' label='City *'}}
-        {{validated-input model=model valuePath='language' label='Language *'}}
 
         {{validated-radio
           label='Type of Contribution *'
@@ -43,8 +43,8 @@
           values=(array
                     (hash value='event_local' label='Local Event')
                     (hash value='event_online' label='Online Event or Webinar')
-                    (hash value='resource' label='Informational resource')
-                    (hash value='project' label='Project')
+                    (hash value='resource' label='Informational resource about OER')
+                    (hash value='project' label='Project with OER')
                     (hash value='other' label='Other')
                  )
         }}
@@ -52,29 +52,40 @@
       {{/if}}
 
       {{#if (and
+              wizard.intro
               (eq wizard.basic true)
               (eq model.contributiontype 'event_local')
-              wizard.intro
+              (eq wizard.event_local false)
             )
       }}
+        <h2>Local Event (Step 2/2)</h2>
 
         {{validated-radio
           label='Type of Local Event *'
           model=model
           valuePath='localeventtype'
           values=(array
-                    (hash value='conference/forum/discussion' label='Conference/forum/discussion')
+                    (hash value='conference/seminar' label='Conference/seminar')
                     (hash value='workshop' label='Workshop')
+                    (hash value='forum/panel/discussion' label='Forum/panel/discussion')
+                    (hash value='other' label='Other')
                  )
         }}
 
         {{validated-input model=model valuePath='title' label='Title of Event *'}}
-        {{validated-input model=model valuePath='facilitator' label='Facilitator *'}}
+        {{validated-input model=model valuePath='facilitator' label='Facilitator'}}
         {{validated-input model=model valuePath='description' label='Short description of the event *' type='textarea'}}
 
-        {{validated-input model=model valuePath='datetime' label='Date and Time *'}}
-        {{validated-input model=model valuePath='timezone' label='Timezone *'}}
-        {{validated-input model=model valuePath='directions' label='Directions *'}}
+        <label>Event starts at *</label>
+        {{pick-a-date date=(readonly model.datetime) on-selected=(action 'updateDatetime') placeholder="Date of Event *" options=(readonly extraPickadateOptions)}}
+        {{pick-a-time date=(readonly model.datetime) on-selected=(action 'updateDatetime') placeholder="Time of Event *" options=(readonly extraPickadateOptions)}}
+
+        {{#if model.datetime}}
+          <p>Event will be submitted using your local timezone: {{timezone}}</p>
+        {{/if}}
+
+        {{validated-input model=model valuePath='url' label='Link to the event'}}
+        {{validated-input model=model valuePath='directions' label='Directions (address or link to Google Maps) *'}}
 
         {{validated-radio
           label='Will you have archived video from the event *'
@@ -86,9 +97,148 @@
                  )
         }}
 
+        <hr />
+
+        <p>Please select from the following categories to help tag your contribution appropriately.</p>
+        {{validated-power-select model=model options=languages valuePath='language' label='Primary Language *'}}
+
+        <label>Please check all that apply:</label>
+
+        {{validated-input model=model valuePath='is_primary' type="checkbox" label="Primary or Secondary Education" }}
+        {{validated-input model=model valuePath='is_higher' type="checkbox" label="Higher Education" }}
+        {{validated-input model=model valuePath='is_community' type="checkbox" label="Community and Technical Colleges" }}
+
+        {{!-- {{validated-power-select model=model options=licenses valuePath='license' label='License *'}} --}}
+
+        <button class="button" {{action 'nextPage' 'event_local' 'submit'}}>Submit Event</button>
       {{/if}}
 
-      {{!-- <button {{action 'formSubmit'}}>Submit</button> --}}
+      {{#if (and
+              wizard.intro
+              (eq wizard.basic true)
+              (eq model.contributiontype 'event_online')
+              (eq wizard.event_online false)
+            )
+      }}
+
+        <h2>Online Event (Step 2/2)</h2>
+
+        {{validated-radio
+          label='Type of Online Event *'
+          model=model
+          valuePath='localeventtype'
+          values=(array
+                    (hash value='webinar' label='Webinar')
+                    (hash value='discussion' label='Online Discussion')
+                    (hash value='other' label='Other')
+                 )
+        }}
+
+        {{validated-input model=model valuePath='title' label='Title of Event *'}}
+        {{validated-input model=model valuePath='facilitator' label='Facilitator'}}
+        {{validated-input model=model valuePath='description' label='Short description of the event *' type='textarea'}}
+
+        <label>Event starts at *</label>
+        {{pick-a-date date=(readonly model.datetime) on-selected=(action 'updateDatetime') placeholder="Date of Event *" options=(readonly extraPickadateOptions)}}
+        {{pick-a-time date=(readonly model.datetime) on-selected=(action 'updateDatetime') placeholder="Time of Event *" options=(readonly extraPickadateOptions)}}
+
+        {{#if model.datetime}}
+          <p>Event will be submitted using your local timezone: {{timezone}}</p>
+        {{/if}}
+
+        {{validated-input model=model valuePath='url' label='Link to the event'}}
+
+        {{validated-radio
+          label='Will you have archived video from the event *'
+          model=model
+          valuePath='archive'
+          values=(array
+                    (hash value='1' label='Yes')
+                    (hash value='0' label='No')
+                 )
+        }}
+
+        <hr />
+
+        <p>Please select from the following categories to help tag your contribution appropriately.</p>
+        {{validated-power-select model=model options=languages valuePath='language' label='Primary Language *'}}
+
+        <label>Please check all that apply:</label>
+        {{validated-input model=model valuePath='is_primary' type="checkbox" label="Primary or Secondary Education" }}
+        {{validated-input model=model valuePath='is_higher' type="checkbox" label="Higher Education" }}
+        {{validated-input model=model valuePath='is_community' type="checkbox" label="Community and Technical Colleges" }}
+
+        <button class="button" {{action 'nextPage' 'event_online' 'submit'}}>Submit Event</button>
+      {{/if}}
+
+      {{#if (and
+              wizard.intro
+              (eq wizard.basic true)
+              (or
+                (eq model.contributiontype 'resource')
+                (eq model.contributiontype 'project')
+              )
+              (eq wizard.resource_project false)
+            )
+      }}
+
+        {{#if (eq model.contributiontype 'resource') }}
+          <h2>Resource about OER (Step 2/2)</h2>
+        {{else }}
+          <h2>Project with OER (Step 2/2)</h2>
+        {{/if}}
+
+        {{validated-input model=model valuePath='title' label='Title *'}}
+        {{validated-input model=model valuePath='description' label='Short description *' type='textarea'}}
+        {{#if (eq model.contributiontype 'resource') }}
+          {{validated-input model=model valuePath='url' label='Link to Resource *'}}
+        {{else }}
+          {{validated-input model=model valuePath='url' label='Link to Project *'}}
+        {{/if}}
+        {{validated-power-select model=model options=licenses valuePath='license' label='License *'}}
+
+        <hr />
+        <p>Please select from the following categories to help tag your contribution appropriately.</p>
+        {{validated-power-select model=model options=languages valuePath='language' label='Primary Language *'}}
+
+        <label>Please check all that apply:</label>
+        {{validated-input model=model valuePath='is_primary' type="checkbox" label="Primary or Secondary Education" }}
+        {{validated-input model=model valuePath='is_higher' type="checkbox" label="Higher Education" }}
+        {{validated-input model=model valuePath='is_community' type="checkbox" label="Community and Technical Colleges" }}
+
+        {{#if (eq model.contributiontype 'resource') }}
+          <button class="button" {{action 'nextPage' 'resource_project' 'submit'}}>Submit Resource</button>
+        {{else}}
+          <button class="button" {{action 'nextPage' 'resource_project' 'submit'}}>Submit Project</button>
+        {{/if}}
+      {{/if}}
+
+      {{#if wizard.submitted}}
+        <h2>Submitted!</h2>
+
+        <p>Thank you for your contribution to Open Education Week. You'll receive an email shortly with the confirmation.</p>
+
+        <p>You can contact us at <a href="mailto:info@openeducationweek.org">info@openeducationweek.org</a> if you have any questions or updates to your submission.</p>
+
+        <p>You can now close this browser window.</p>
+
+        <hr/>
+
+        <h2>Supporting all Learners</h2>
+        <p>We seek to ensure that all Open Education Week activities and contributions are accessible to all learners.  The following best practices from the National Center for Disabilities and Access to Education are highly recommended:</p>
+
+        <ul>
+          <li>Provide alternative text for non-textual items including images and audio</li>
+          <li>Make sure that content is well structured and clearly written</li>
+          <li>Provide headers for data tables</li>
+          <li>Ensure hyperlinks make sense out of context</li>
+          <li>Caption and/or provide transcripts for videos</li>
+          <li>Do not rely on color alone to convey meaning</li>
+          <li>Ensure users can complete and submit all forms</li>
+        </ul>
+
+      {{/if}}
+
     </div>
   </div>
 </div>

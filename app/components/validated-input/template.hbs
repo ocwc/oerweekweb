@@ -1,11 +1,20 @@
 {{!-- BEGIN-SNIPPET validated-input --}}
 <div class="form-group">
-  {{#if label}}
+  {{#if (and
+          label
+          (not-eq type 'checkbox')
+         )
+  }}
     <label for="{{concat elementId '-name'}}">{{label}}</label>
   {{/if}}
 
   {{#if (eq type 'textarea') }}
     {{textarea type=type value=value placeholder=placeholder class="form-control" name=valuePath id=(concat elementId '-name')}}
+  {{else if (eq type 'checkbox') }}
+    <label>
+      {{input type=type checked=value class="form-control" name=valuePath id=(concat elementId '-name')}}
+      {{label}}
+    </label>
   {{else}}
     {{input type=type value=value placeholder=placeholder class="form-control" name=valuePath id=(concat elementId '-name')}}
   {{/if}}

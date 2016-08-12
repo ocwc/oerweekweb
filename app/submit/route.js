@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model(params) {
+  model() {
     return this.store.createRecord('submission', {
-      'contributiontype': 'event_local'
+      'contributiontype': 'event_online'
     });
   },
 
