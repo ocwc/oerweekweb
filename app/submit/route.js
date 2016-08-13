@@ -3,7 +3,8 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   model() {
     return this.store.createRecord('submission', {
-      'contributiontype': 'event_online'
+      // 'datetime': 'Mon Mar 27 2017 15:00:00 GMT+0200 (CEST)'
+      'datetime': new Date(2017, 2, 27)
     });
   },
 

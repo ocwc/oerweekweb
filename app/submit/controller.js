@@ -28,12 +28,14 @@ export default Ember.Controller.extend({
   // },
 
   wizard_fields: {
-    'basic': ['firstname',],
+    'basic': ['firstname', 'contributiontype'],
     'resource_project': ['title'],
+    'event_local': ['title'],
+
     // 'basic': ['firstname', 'lastname', 'email', 'country', 'city', 'contributiontype'],
-    'event_local': ['title', 'description', 'date', 'time', 'directions', 'archive', 'language'],
-    'event_online': ['title', 'description', 'date', 'time', 'url', 'archive', 'language'],
-    // 'resource_project': ['title', 'description', 'license', 'url', 'language'],
+    // 'event_local': ['title', 'description', 'date', 'time', 'directions', 'archive', 'language'],
+    'event_online': ['title', 'description', 'date', 'time', 'link', 'archive', 'language'],
+    // 'resource_project': ['title', 'description', 'license', 'link', 'language'],
   },
 
   actions: {
@@ -43,7 +45,6 @@ export default Ember.Controller.extend({
       } else {
         var model = this.get('model');
 
-        console.log('validating', this.get(`wizard_fields.${prop}`));
         model.validate({ 'on': this.get(`wizard_fields.${prop}`) }).then(({
           model,
           validations
@@ -59,7 +60,7 @@ export default Ember.Controller.extend({
           } else {
             this.set('didValidate', true);
           }
-          
+
           Ember.$(window).scrollTop(0);
         });
       }

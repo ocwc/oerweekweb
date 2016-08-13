@@ -40,7 +40,6 @@
 }
 
 .ember-power-select-trigger {
-  margin-bottom: rem-calc(15);
   min-height: 2.25em;
   line-height: 2.15;
 }
@@ -48,4 +47,8 @@
 .ember-power-select-search-input {
   height: auto;
   margin: auto;
+}
+
+.ember-basic-dropdown {
+  margin-bottom: rem-calc(15);
 }

@@ -52,6 +52,7 @@ export default DS.Model.extend(Validations, {
   firstname: DS.attr('string'),
   lastname: DS.attr('string'),
   institution: DS.attr('string'),
+  institutionurl: DS.attr('string'),
   email: DS.attr('string'),
   country: DS.attr('string'),
   city: DS.attr('string'),
@@ -64,7 +65,7 @@ export default DS.Model.extend(Validations, {
   datetime: DS.attr('string'),
 
   directions: DS.attr('string'),
-  url: DS.attr('string'),
+  link: DS.attr('string'),
   archive: DS.attr('boolean'),
 
   is_primary: DS.attr('boolean'),

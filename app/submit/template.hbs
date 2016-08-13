@@ -30,11 +30,16 @@
 
         {{validated-input model=model valuePath='email' label='Email *'}}
         {{validated-input model=model valuePath='institution' label='Institution or Organization'}}
-        {{validated-input model=model valuePath='website' label='Website of institution or organization'}}
+        {{validated-input model=model valuePath='institutionurl' label='Website of institution or organization'}}
 
-        {{validated-power-select model=model options=countries valuePath='country' label='Country *'}}
+        {{validated-power-select
+          model=model
+          options=countries
+          valuePath='country'
+          placeholder="Select your country ..."
+          label='Country *'}}
 
-        {{validated-input model=model valuePath='city' label='City *'}}
+        {{validated-input model=model valuePath='city' label='City, State *'}}
 
         {{validated-radio
           label='Type of Contribution *'
@@ -81,10 +86,10 @@
         {{pick-a-time date=(readonly model.datetime) on-selected=(action 'updateDatetime') placeholder="Time of Event *" options=(readonly extraPickadateOptions)}}
 
         {{#if model.datetime}}
-          <p>Event will be submitted using your local timezone: {{timezone}}</p>
+          <p>Event will be submitted using your local timezone at the time: {{timezone}}</p>
         {{/if}}
 
-        {{validated-input model=model valuePath='url' label='Link to the event'}}
+        {{validated-input model=model valuePath='link' label='Link to the event'}}
         {{validated-input model=model valuePath='directions' label='Directions (address or link to Google Maps) *'}}
 
         {{validated-radio
@@ -100,7 +105,7 @@
         <hr />
 
         <p>Please select from the following categories to help tag your contribution appropriately.</p>
-        {{validated-power-select model=model options=languages valuePath='language' label='Primary Language *'}}
+        {{validated-power-select model=model options=languages valuePath='language' label='Primary Language *' placeholder='Select language ...'}}
 
         <label>Please check all that apply:</label>
 
@@ -146,7 +151,7 @@
           <p>Event will be submitted using your local timezone: {{timezone}}</p>
         {{/if}}
 
-        {{validated-input model=model valuePath='url' label='Link to the event'}}
+        {{validated-input model=model valuePath='link' label='Link to the event'}}
 
         {{validated-radio
           label='Will you have archived video from the event *'
@@ -161,7 +166,7 @@
         <hr />
 
         <p>Please select from the following categories to help tag your contribution appropriately.</p>
-        {{validated-power-select model=model options=languages valuePath='language' label='Primary Language *'}}
+        {{validated-power-select model=model options=languages valuePath='language' label='Primary Language *' placeholder='Select language ...'}}
 
         <label>Please check all that apply:</label>
         {{validated-input model=model valuePath='is_primary' type="checkbox" label="Primary or Secondary Education" }}
@@ -191,15 +196,15 @@
         {{validated-input model=model valuePath='title' label='Title *'}}
         {{validated-input model=model valuePath='description' label='Short description *' type='textarea'}}
         {{#if (eq model.contributiontype 'resource') }}
-          {{validated-input model=model valuePath='url' label='Link to Resource *'}}
+          {{validated-input model=model valuePath='link' label='Link to Resource *'}}
         {{else }}
-          {{validated-input model=model valuePath='url' label='Link to Project *'}}
+          {{validated-input model=model valuePath='link' label='Link to Project *'}}
         {{/if}}
         {{validated-power-select model=model options=licenses valuePath='license' label='License *'}}
 
         <hr />
         <p>Please select from the following categories to help tag your contribution appropriately.</p>
-        {{validated-power-select model=model options=languages valuePath='language' label='Primary Language *'}}
+        {{validated-power-select model=model options=languages valuePath='language' label='Primary Language *' placeholder='Select language ...'}}
 
         <label>Please check all that apply:</label>
         {{validated-input model=model valuePath='is_primary' type="checkbox" label="Primary or Secondary Education" }}
