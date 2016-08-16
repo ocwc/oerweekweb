@@ -3,8 +3,12 @@ import Response from 'ember-cli-mirage/response';
 export default function() {
   this.namespace = 'http://localhost:8000/api';
 
-  this.post('submissions', function(schema, request) {
+  this.post('submission', function(schema, request) {
     let attrs = JSON.parse(request.requestBody); //.data.attributes;
+
+    console.log(attrs);
+
+    return new Response(200, {}, attrs);
 
     if ( attrs.firstname === 'John') {
       return {

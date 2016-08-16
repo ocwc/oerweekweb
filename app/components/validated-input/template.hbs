@@ -26,6 +26,18 @@
     }}
       {{option}}
     {{/power-select}}
+  {{else if (eq type 'radio') }}
+    {{#each values as |radio|}}
+
+      {{#radio-button
+        value=radio.value
+        groupValue=radioValue
+        changed=(action 'radioChanged')
+        radioClass=radio.value
+      }}
+        {{radio.label}}
+      {{/radio-button}}
+    {{/each}}
   {{else}}
     {{input type=type value=value placeholder=placeholder class="form-control" name=valuePath id=(concat elementId '-name')}}
   {{/if}}

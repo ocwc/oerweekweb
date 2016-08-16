@@ -48,6 +48,9 @@ export default Ember.Component.extend({
     valueChanged(val) {
       this.get('model').set(this.get('valuePath'), val);
       this.set('selected', val);
+    },
+    radioChanged(val) {
+      this.get('model').set(this.get('valuePath'), val);
     }
   }
 

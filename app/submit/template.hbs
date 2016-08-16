@@ -36,7 +36,7 @@
 
         {{validated-input model=model valuePath='city' label='City, State *'}}
 
-        {{validated-radio
+        {{validated-input
           label='Type of Contribution *'
           model=model
           valuePath='contributiontype'
@@ -46,6 +46,7 @@
                     (hash value='resource' label='Informational resource about OER')
                     (hash value='project' label='Project with OER')
                  )
+          type='radio'
         }}
         <button class="button" {{action 'nextPage' 'basic'}}>Next Page</button>
       {{/if}}
@@ -59,7 +60,7 @@
       }}
         <h2>Local Event (Step 2/2)</h2>
 
-        {{validated-radio
+        {{validated-input
           label='Type of Local Event *'
           model=model
           valuePath='localeventtype'
@@ -69,6 +70,7 @@
                     (hash value='forum/panel/discussion' label='Forum/panel/discussion')
                     (hash value='other' label='Other')
                  )
+          type='radio'
         }}
 
         {{#if (eq model.localeventtype 'other') }}
@@ -90,7 +92,7 @@
         {{validated-input model=model valuePath='link' label='Link to the event'}}
         {{validated-input model=model valuePath='directions' label='Directions (address or link to Google Maps) *'}}
 
-        {{validated-radio
+        {{validated-input
           label='Will you have archived video from the event *'
           model=model
           valuePath='archive'
@@ -98,6 +100,7 @@
                     (hash value='1' label='Yes')
                     (hash value='0' label='No')
                  )
+          type='radio'
         }}
 
         <hr />
@@ -124,7 +127,7 @@
 
         <h2>Online Event (Step 2/2)</h2>
 
-        {{validated-radio
+        {{validated-input
           label='Type of Online Event *'
           model=model
           valuePath='localeventtype'
@@ -133,6 +136,7 @@
                     (hash value='discussion' label='Online Discussion')
                     (hash value='other' label='Other')
                  )
+          type='radio'
         }}
 
         {{#if (eq model.localeventtype 'other') }}
@@ -153,7 +157,7 @@
 
         {{validated-input model=model valuePath='link' label='Link to the event'}}
 
-        {{validated-radio
+        {{validated-input
           label='Will you have archived video from the event *'
           model=model
           valuePath='archive'
@@ -161,6 +165,7 @@
                     (hash value='1' label='Yes')
                     (hash value='0' label='No')
                  )
+          type='radio'
         }}
 
         <hr />
