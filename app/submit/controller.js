@@ -30,11 +30,11 @@ export default Ember.Controller.extend({
   wizard_fields: {
     'basic': ['firstname', 'contributiontype'],
     'resource_project': ['title'],
-    'event_local': ['title'],
+    'event_local': ['title', 'eventother'],
 
     // 'basic': ['firstname', 'lastname', 'email', 'country', 'city', 'contributiontype'],
-    // 'event_local': ['title', 'description', 'date', 'time', 'directions', 'archive', 'language'],
-    'event_online': ['title', 'description', 'date', 'time', 'link', 'archive', 'language'],
+    // 'event_local': ['title', 'description', 'date', 'time', 'directions', 'archive', 'language', 'eventother'],
+    'event_online': ['title', 'description', 'date', 'time', 'link', 'archive', 'language', 'eventother'],
     // 'resource_project': ['title', 'description', 'license', 'link', 'language'],
   },
 

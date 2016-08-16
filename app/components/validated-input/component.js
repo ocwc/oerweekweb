@@ -14,7 +14,7 @@ const {
 
 export default Ember.Component.extend({
   classNames: ['validated-input'],
-  classNameBindings: ['showErrorClass:has-error', 'isValid:has-success'],
+  classNameBindings: ['showErrorClass:has-error', 'isValid:has-success', 'valuePath'],
   model: null,
   value: null,
   type: 'text',
@@ -42,6 +42,14 @@ export default Ember.Component.extend({
 
   showWarningMessage: computed('validation.isDirty', 'validation.warnings.[]', 'isValid', 'didValidate', function() {
     return (this.get('validation.isDirty') || this.get('didValidate')) && this.get('isValid') && !isEmpty(this.get('validation.warnings'));
-  })
+  }),
+
+  actions: {
+    valueChanged(val) {
+      this.get('model').set(this.get('valuePath'), val);
+      this.set('selected', val);
+    }
+  }
+
 });
 // END-SNIPPET

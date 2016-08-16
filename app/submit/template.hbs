@@ -32,12 +32,7 @@
         {{validated-input model=model valuePath='institution' label='Institution or Organization'}}
         {{validated-input model=model valuePath='institutionurl' label='Website of institution or organization'}}
 
-        {{validated-power-select
-          model=model
-          options=countries
-          valuePath='country'
-          placeholder="Select your country ..."
-          label='Country *'}}
+        {{validated-input model=model options=countries valuePath='country' placeholder="Select your country ..." label='Country *' type='power-select'}}
 
         {{validated-input model=model valuePath='city' label='City, State *'}}
 
@@ -50,7 +45,6 @@
                     (hash value='event_online' label='Online Event or Webinar')
                     (hash value='resource' label='Informational resource about OER')
                     (hash value='project' label='Project with OER')
-                    (hash value='other' label='Other')
                  )
         }}
         <button class="button" {{action 'nextPage' 'basic'}}>Next Page</button>
@@ -76,6 +70,10 @@
                     (hash value='other' label='Other')
                  )
         }}
+
+        {{#if (eq model.localeventtype 'other') }}
+          {{validated-input model=model valuePath='eventother' label='Define type of your event'}}
+        {{/if}}
 
         {{validated-input model=model valuePath='title' label='Title of Event *'}}
         {{validated-input model=model valuePath='facilitator' label='Facilitator'}}
@@ -105,15 +103,13 @@
         <hr />
 
         <p>Please select from the following categories to help tag your contribution appropriately.</p>
-        {{validated-power-select model=model options=languages valuePath='language' label='Primary Language *' placeholder='Select language ...'}}
+        {{validated-input model=model options=languages valuePath='language' label='Primary Language *' placeholder='Select language ...' type='power-select'}}
 
         <label>Please check all that apply:</label>
 
         {{validated-input model=model valuePath='is_primary' type="checkbox" label="Primary or Secondary Education" }}
         {{validated-input model=model valuePath='is_higher' type="checkbox" label="Higher Education" }}
         {{validated-input model=model valuePath='is_community' type="checkbox" label="Community and Technical Colleges" }}
-
-        {{!-- {{validated-power-select model=model options=licenses valuePath='license' label='License *'}} --}}
 
         <button class="button" {{action 'nextPage' 'event_local' 'submit'}}>Submit Event</button>
       {{/if}}
@@ -138,6 +134,10 @@
                     (hash value='other' label='Other')
                  )
         }}
+
+        {{#if (eq model.localeventtype 'other') }}
+          {{validated-input model=model valuePath='eventother' label='Define type of your event'}}
+        {{/if}}
 
         {{validated-input model=model valuePath='title' label='Title of Event *'}}
         {{validated-input model=model valuePath='facilitator' label='Facilitator'}}
@@ -166,7 +166,7 @@
         <hr />
 
         <p>Please select from the following categories to help tag your contribution appropriately.</p>
-        {{validated-power-select model=model options=languages valuePath='language' label='Primary Language *' placeholder='Select language ...'}}
+        {{validated-input model=model options=languages valuePath='language' label='Primary Language *' placeholder='Select language ...' type='power-select'}}
 
         <label>Please check all that apply:</label>
         {{validated-input model=model valuePath='is_primary' type="checkbox" label="Primary or Secondary Education" }}
@@ -200,11 +200,11 @@
         {{else }}
           {{validated-input model=model valuePath='link' label='Link to Project *'}}
         {{/if}}
-        {{validated-power-select model=model options=licenses valuePath='license' label='License *'}}
+        {{validated-input model=model options=licenses valuePath='license' label='License *' type='power-select'}}
 
         <hr />
         <p>Please select from the following categories to help tag your contribution appropriately.</p>
-        {{validated-power-select model=model options=languages valuePath='language' label='Primary Language *' placeholder='Select language ...'}}
+        {{validated-input model=model options=languages valuePath='language' label='Primary Language *' placeholder='Select language ...' type='power-select'}}
 
         <label>Please check all that apply:</label>
         {{validated-input model=model valuePath='is_primary' type="checkbox" label="Primary or Secondary Education" }}

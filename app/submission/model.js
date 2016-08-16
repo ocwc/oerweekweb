@@ -60,6 +60,7 @@ export default DS.Model.extend(Validations, {
   contributiontype: DS.attr('string'),
 
   localeventtype: DS.attr('string'),
+  eventother: DS.attr('string'),
   title: DS.attr('string'),
   description: DS.attr('string'),
   datetime: DS.attr('string'),

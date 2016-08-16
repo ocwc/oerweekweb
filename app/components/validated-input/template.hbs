@@ -15,6 +15,17 @@
       {{input type=type checked=value class="form-control" name=valuePath id=(concat elementId '-name')}}
       {{label}}
     </label>
+  {{else if (eq type 'power-select') }}
+    {{#power-select
+      options=options
+      onchange=(action 'valueChanged')
+      selected=selected
+      placeholder=placeholder
+      renderInPlace=true
+      as |option|
+    }}
+      {{option}}
+    {{/power-select}}
   {{else}}
     {{input type=type value=value placeholder=placeholder class="form-control" name=valuePath id=(concat elementId '-name')}}
   {{/if}}

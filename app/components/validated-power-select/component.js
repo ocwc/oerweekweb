@@ -14,7 +14,7 @@ const {
 
 export default Ember.Component.extend({
   classNames: ['validated-input'],
-  classNameBindings: ['showErrorClass:has-error', 'isValid:has-success'],
+  classNameBindings: ['showErrorClass:has-error', 'isValid:has-success', 'valuePath'],
   model: null,
   value: null,
   type: 'text',
