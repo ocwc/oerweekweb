@@ -74,4 +74,5 @@ export default DS.Model.extend(Validations, {
   is_community: DS.attr('boolean'),
 
   license: DS.attr('string'),
+  postStatus: DS.attr('string'),
 });

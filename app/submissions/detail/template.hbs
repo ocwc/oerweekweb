@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="small-12 box">
+    <h2>#{{model.id}} - {{model.title}}</h2>
+
+    <dl class="box--meta">
+      <dd>Contact</dd>
+      <dt>{{model.firstname}} {{model.lastname}} (<a href="mailto:{{model.email}}">{{model.email}}</a>)</dt>
+
+      <dd>Institution</dd>
+      <dt>{{model.institution}} (<a href="{{model.institutionurl}}" target="_blank">{{model.institutionurl}}</a>)</dt>
+
+      <dd>City and Country</dd>
+      <dt>{{model.city}}, {{model.country}}</dt>
+
+      <dd>Language</dd>
+      <dt>{{model.language}}</dt>
+
+    </dl>
+
+    <hr />
+    {{#if (eq model.contributiontype 'event_local')}}
+      <h2>Local Event</h2>
+    {{else if (eq model.contributiontype 'event_online')}}
+      <h2>Online Event</h2>
+    {{else if (eq model.contributiontype 'resource')}}
+      <h2>OER Resource</h2>
+    {{else if (eq model.contributiontype 'project')}}
+      <h2>Project</h2>
+    {{/if}}
+
+    <dl class="box--meta">
+      <dd>Title</dd>
+      <dt>{{model.title}}</dt>
+
+      <dd>Description</dd>
+      <dt>{{model.description}}</dt>
+
+      <dd>Link</dd>
+      <dt><a href="{{model.link}}" target="_blank">{{model.link}}</a></dt>
+
+      {{#if (or (eq model.contributiontype 'event_local') (eq model.contributiontype 'event_online'))}}
+        <dd>Event Type</dd>
+        <dt>{{model.localeventtype}}</dt>
+
+        {{#if (or (eq model.contributiontype 'other_local') (eq model.contributiontype 'other_online'))}}
+          <dd>Other</dd>
+          <dt>{{model.eventother}}</dt>
+        {{/if}}
+
+        <dd>Event Time</dd>
+        <dt>{{model.datetime}}</dt>
+
+        <dd>Directions</dd>
+        <dt>{{model.directions}}</dt>
+
+        <dd>Will it be archived?</dd>
+        <dt>{{model.archive}}</dt>
+      {{/if}}
+
+      <h3>Categories</h3>
+      <dd>Primary or Secondary Education</dd>
+      <dt>{{model.is_primary}}</dt>
+
+      <dd>Higher Education</dd>
+      <dt>{{model.is_higher}}</dt>
+
+      <dd>Community and Technical Colleges</dd>
+      <dt>{{model.is_community}}</dt>
+
+      {{#if model.license}}
+        <dd>License</dd>
+        <dt>{{model.license}}</dt>
+      {{/if}}
+    </dl>
+
+  </div>
+
+</div>
