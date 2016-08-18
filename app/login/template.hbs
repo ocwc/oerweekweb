@@ -1,12 +1,18 @@
-<form {{action 'authenticate' on='submit'}}>
-  <label for="identification">Login</label>
-  {{input id='identification' placeholder='Enter Login' value=identification}}
-  <label for="password">Password</label>
-  {{input id='password' placeholder='Enter Password' type='password' value=password}}
-  <button type="submit">Login</button>
-  {{#if errorMessage}}
-    <p>{{errorMessage}}</p>
-  {{/if}}
-</form>
+<div class="row">
+  <div class="medium-10 columns medium-centered">
+    <div class="box">
+      <form {{action 'authenticate' on='submit'}}>
+        <label for="identification">Login</label>
+        {{input id='identification' placeholder='Enter Login' value=identification}}
+        <label for="password">Password</label>
+        {{input id='password' placeholder='Enter Password' type='password' value=password}}
+        <button type="submit">Login</button>
+        {{#if errorMessage}}
+          <p>{{errorMessage}}</p>
+        {{/if}}
+      </form>
 
-{{outlet}}
+      {{outlet}}
+    </div>
+  </div>
+</div>

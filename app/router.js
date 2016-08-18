@@ -62,6 +62,7 @@ Router.map(function() {
     this.route('local');
   });
   this.route('open-education-initiatives');
+  this.route('submissions');
 });
 
 export default Router;
