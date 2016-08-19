@@ -64,6 +64,7 @@ export default DS.Model.extend(Validations, {
   description: DS.attr('string'),
   datetime: DS.attr('string'),
 
+  facilitator: DS.attr('string'),
   directions: DS.attr('string'),
   link: DS.attr('string'),
   archive: DS.attr('boolean'),
