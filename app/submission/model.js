@@ -24,7 +24,9 @@ var Validations = buildValidations({
   contributiontype: [
     validator('presence', true),
   ],
-
+  link: [
+    validator('presence', true)
+  ],
 
   title: [
     validator('presence', true),
@@ -33,9 +35,6 @@ var Validations = buildValidations({
     validator('presence', true),
   ],
   datetime: [
-    validator('presence', true),
-  ],
-  directions: [
     validator('presence', true),
   ],
   archive: [
