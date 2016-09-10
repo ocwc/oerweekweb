@@ -1,0 +1,7 @@
+{{#if hasTwttr }}
+  {{#each tweets as |tweet|}}
+    <div class="medium-3 columns">
+      {{twitter-embed tweet=tweet}}
+    </div>
+  {{/each}}
+{{/if}}
