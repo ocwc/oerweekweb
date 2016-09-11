@@ -76,7 +76,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.API_HOST = 'http://api.openeducationweek.org';
+    ENV.APP.API_HOST = 'https://api.openeducationweek.org';
     ENV.APP.API_NAMESPACE = 'api';
 
     ENV['ember-simple-auth'] = {
@@ -85,8 +85,8 @@ module.exports = function(environment) {
     }
 
     ENV['ember-simple-auth-token'] = {
-      serverTokenEndpoint: 'http://api.openeducationweek.org/api-token-auth/',
-      serverTokenRefreshEndpoint: 'http://api.openeducationweek.org/api-token-refresh/',
+      serverTokenEndpoint: 'https://api.openeducationweek.org/api-token-auth/',
+      serverTokenRefreshEndpoint: 'https://api.openeducationweek.org/api-token-refresh/',
       refreshAccessTokens: true,
       timeFactor: 7200,
       refreshLeeway: 300,
