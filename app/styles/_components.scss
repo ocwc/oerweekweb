@@ -227,7 +227,7 @@ footer {
   font-size: rem-calc(20);
   font-weight: 300;
   line-height: rem-calc(27);
-
+  
   @include breakpoint(medium) {
     margin-bottom: rem-calc(36);
   }
