@@ -27,7 +27,6 @@ var Validations = buildValidations({
   link: [
     validator('presence', true)
   ],
-
   title: [
     validator('presence', true),
   ],

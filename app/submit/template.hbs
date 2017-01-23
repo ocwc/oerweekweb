@@ -21,20 +21,20 @@
         <h2>General Information (Step 1/2)</h2>
         <div class="row">
           <div class="medium-6 columns">
-            {{validated-input model=model valuePath='firstname' label='First Name *'}}
+            {{validated-input model=model valuePath='firstname' label='First Name *' didValidate=didValidate}}
           </div>
           <div class="medium-6 columns">
-            {{validated-input model=model valuePath='lastname' label='Last Name *'}}
+            {{validated-input model=model valuePath='lastname' label='Last Name *' didValidate=didValidate}}
           </div>
         </div>
 
-        {{validated-input model=model valuePath='email' label='Email *'}}
-        {{validated-input model=model valuePath='institution' label='Institution or Organization'}}
-        {{validated-input model=model valuePath='institutionurl' label='Website of institution or organization'}}
+        {{validated-input model=model valuePath='email' label='Email *' didValidate=didValidate}}
+        {{validated-input model=model valuePath='institution' label='Institution or Organization' didValidate=didValidate}}
+        {{validated-input model=model valuePath='institutionurl' label='Website of institution or organization' didValidate=didValidate}}
 
-        {{validated-input model=model options=countries valuePath='country' placeholder="Select your country ..." label='Country *' type='power-select'}}
+        {{validated-input model=model options=countries valuePath='country' placeholder="Select your country ..." label='Country *' type='power-select' didValidate=didValidate}}
 
-        {{validated-input model=model valuePath='city' label='City, State *'}}
+        {{validated-input model=model valuePath='city' label='City, State *' didValidate=didValidate}}
 
         {{validated-input
           label='Type of Contribution *'
@@ -47,6 +47,7 @@
                     (hash value='project' label='Project with OER')
                  )
           type='radio'
+          didValidate=didValidate
         }}
         <button class="button" {{action 'nextPage' 'basic'}}>Next Page</button>
       {{/if}}
@@ -71,26 +72,27 @@
                     (hash value='other' label='Other')
                  )
           type='radio'
+          didValidate=didValidate
         }}
 
         {{#if (eq model.localeventtype 'other') }}
-          {{validated-input model=model valuePath='eventother' label='Define type of your event'}}
+          {{validated-input model=model valuePath='eventother' label='Define type of your event' didValidate=didValidate}}
         {{/if}}
 
-        {{validated-input model=model valuePath='title' label='Title of Event *'}}
-        {{validated-input model=model valuePath='facilitator' label='Facilitator'}}
-        {{validated-input model=model valuePath='description' label='Short description of the event *' type='textarea'}}
+        {{validated-input model=model valuePath='title' label='Title of Event *' didValidate=didValidate}}
+        {{validated-input model=model valuePath='facilitator' label='Facilitator' didValidate=didValidate}}
+        {{validated-input model=model valuePath='description' label='Short description of the event *' type='textarea' didValidate=didValidate}}
 
         <label>Event starts at *</label>
-        {{pick-a-date date=(readonly model.datetime) on-selected=(action 'updateDatetime') placeholder="Date of Event *" options=(readonly extraPickadateOptions)}}
-        {{pick-a-time date=(readonly model.datetime) on-selected=(action 'updateDatetime') placeholder="Time of Event *" options=(readonly extraPickadateOptions)}}
+        {{pick-a-date date=(readonly model.datetime) on-selected=(action 'updateDatetime') placeholder="Date of Event *" options=(readonly extraPickadateOptions) didValidate=didValidate}}
+        {{pick-a-time date=(readonly model.datetime) on-selected=(action 'updateDatetime') placeholder="Time of Event *" options=(readonly extraPickadateOptions) didValidate=didValidate}}
 
         {{#if model.datetime}}
           <p>Event will be submitted using your local timezone at the time: {{timezone}}</p>
         {{/if}}
 
-        {{validated-input model=model valuePath='link' label='Link to the event *'}}
-        {{validated-input model=model valuePath='directions' label='Directions (address or link to Google Maps)'}}
+        {{validated-input model=model valuePath='link' label='Link to the event *' didValidate=didValidate}}
+        {{validated-input model=model valuePath='directions' label='Directions (address or link to Google Maps)' didValidate=didValidate}}
 
         {{validated-input
           label='Will you have archived video from the event *'
@@ -101,17 +103,18 @@
                     (hash value='0' label='No')
                  )
           type='radio'
+          didValidate=didValidate
         }}
 
         <hr />
 
-        {{validated-input model=model options=languages valuePath='language' label='Primary Language *' placeholder='Select language ...' type='power-select'}}
+        {{validated-input model=model options=languages valuePath='language' label='Primary Language *' placeholder='Select language ...' type='power-select' didValidate=didValidate}}
 
         <label>Please check all that apply:</label>
 
-        {{validated-input model=model valuePath='is_primary' type="checkbox" label="Primary or Secondary Education" }}
-        {{validated-input model=model valuePath='is_higher' type="checkbox" label="Higher Education" }}
-        {{validated-input model=model valuePath='is_community' type="checkbox" label="Community and Technical Colleges" }}
+        {{validated-input model=model valuePath='is_primary' type="checkbox" label="Primary or Secondary Education" didValidate=didValidate}}
+        {{validated-input model=model valuePath='is_higher' type="checkbox" label="Higher Education" didValidate=didValidate}}
+        {{validated-input model=model valuePath='is_community' type="checkbox" label="Community and Technical Colleges" didValidate=didValidate}}
 
         <button class="button" {{action 'nextPage' 'event_local' 'submit'}}>Submit Event</button>
       {{/if}}
@@ -136,25 +139,26 @@
                     (hash value='other' label='Other')
                  )
           type='radio'
+          didValidate=didValidate
         }}
 
         {{#if (eq model.localeventtype 'other') }}
-          {{validated-input model=model valuePath='eventother' label='Define type of your event'}}
+          {{validated-input model=model valuePath='eventother' label='Define type of your event' didValidate=didValidate}}
         {{/if}}
 
-        {{validated-input model=model valuePath='title' label='Title of Event *'}}
-        {{validated-input model=model valuePath='facilitator' label='Facilitator'}}
-        {{validated-input model=model valuePath='description' label='Short description of the event *' type='textarea'}}
+        {{validated-input model=model valuePath='title' label='Title of Event *' didValidate=didValidate}}
+        {{validated-input model=model valuePath='facilitator' label='Facilitator' didValidate=didValidate}}
+        {{validated-input model=model valuePath='description' label='Short description of the event *' type='textarea' didValidate=didValidate}}
 
         <label>Event starts at *</label>
-        {{pick-a-date date=(readonly model.datetime) on-selected=(action 'updateDatetime') placeholder="Date of Event *" options=(readonly extraPickadateOptions)}}
-        {{pick-a-time date=(readonly model.datetime) on-selected=(action 'updateDatetime') placeholder="Time of Event *" options=(readonly extraPickadateOptions)}}
+        {{pick-a-date date=(readonly model.datetime) on-selected=(action 'updateDatetime') placeholder="Date of Event *" options=(readonly extraPickadateOptions) didValidate=didValidate}}
+        {{pick-a-time date=(readonly model.datetime) on-selected=(action 'updateDatetime') placeholder="Time of Event *" options=(readonly extraPickadateOptions) didValidate=didValidate}}
 
         {{#if model.datetime}}
           <p>Event will be submitted using your local timezone: {{timezone}}</p>
         {{/if}}
 
-        {{validated-input model=model valuePath='link' label='Link to the event *'}}
+        {{validated-input model=model valuePath='link' label='Link to the event *' didValidate=didValidate}}
 
         {{validated-input
           label='Will you have archived video from the event *'
@@ -165,16 +169,17 @@
                     (hash value='0' label='No')
                  )
           type='radio'
+          didValidate=didValidate
         }}
 
         <hr />
 
-        {{validated-input model=model options=languages valuePath='language' label='Primary Language *' placeholder='Select language ...' type='power-select'}}
+        {{validated-input model=model options=languages valuePath='language' label='Primary Language *' placeholder='Select language ...' type='power-select' didValidate=didValidate}}
 
         <label>Please check all that apply:</label>
-        {{validated-input model=model valuePath='is_primary' type="checkbox" label="Primary or Secondary Education" }}
-        {{validated-input model=model valuePath='is_higher' type="checkbox" label="Higher Education" }}
-        {{validated-input model=model valuePath='is_community' type="checkbox" label="Community and Technical Colleges" }}
+        {{validated-input model=model valuePath='is_primary' type="checkbox" label="Primary or Secondary Education" didValidate=didValidate}}
+        {{validated-input model=model valuePath='is_higher' type="checkbox" label="Higher Education" didValidate=didValidate}}
+        {{validated-input model=model valuePath='is_community' type="checkbox" label="Community and Technical Colleges" didValidate=didValidate}}
 
         <button class="button" {{action 'nextPage' 'event_online' 'submit'}}>Submit Event</button>
       {{/if}}
@@ -196,23 +201,23 @@
           <h2>Project with OER (Step 2/2)</h2>
         {{/if}}
 
-        {{validated-input model=model valuePath='title' label='Title *'}}
-        {{validated-input model=model valuePath='description' label='Short description *' type='textarea'}}
+        {{validated-input model=model valuePath='title' label='Title *' didValidate=didValidate}}
+        {{validated-input model=model valuePath='description' label='Short description *' type='textarea' didValidate=didValidate}}
         {{#if (eq model.contributiontype 'resource') }}
-          {{validated-input model=model valuePath='link' label='Link to Resource *'}}
+          {{validated-input model=model valuePath='link' label='Link to Resource *' didValidate=didValidate}}
         {{else }}
-          {{validated-input model=model valuePath='link' label='Link to Project *'}}
+          {{validated-input model=model valuePath='link' label='Link to Project *' didValidate=didValidate}}
         {{/if}}
-        {{validated-input model=model options=licenses valuePath='license' label='License *' type='power-select'}}
+        {{validated-input model=model options=licenses valuePath='license' label='License *' type='power-select' didValidate=didValidate}}
 
         <hr />
-        
-        {{validated-input model=model options=languages valuePath='language' label='Primary Language *' placeholder='Select language ...' type='power-select'}}
+
+        {{validated-input model=model options=languages valuePath='language' label='Primary Language *' placeholder='Select language ...' type='power-select' didValidate=didValidate}}
 
         <label>Please check all that apply:</label>
-        {{validated-input model=model valuePath='is_primary' type="checkbox" label="Primary or Secondary Education" }}
-        {{validated-input model=model valuePath='is_higher' type="checkbox" label="Higher Education" }}
-        {{validated-input model=model valuePath='is_community' type="checkbox" label="Community and Technical Colleges" }}
+        {{validated-input model=model valuePath='is_primary' type="checkbox" label="Primary or Secondary Education" didValidate=didValidate}}
+        {{validated-input model=model valuePath='is_higher' type="checkbox" label="Higher Education" didValidate=didValidate}}
+        {{validated-input model=model valuePath='is_community' type="checkbox" label="Community and Technical Colleges" didValidate=didValidate}}
 
         {{#if (eq model.contributiontype 'resource') }}
           <button class="button" {{action 'nextPage' 'resource_project' 'submit'}}>Submit Resource</button>
