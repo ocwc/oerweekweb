@@ -1,8 +1,6 @@
 {
   "name": "oerweekweb",
   "dependencies": {
-    "ember": "~2.10.0",
-    "ember-cli-shims": "~0.1.1",
     "foundation-sites": "~6.1.0",
     "pickadate": "^3.5.6"
   }
