@@ -3,6 +3,6 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model() {
-    return this.get('store').findAll('submission', {'page_size': 200});
+    return this.get('store').query('submission', {'page_size': 200});
   }
 });
