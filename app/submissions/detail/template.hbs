@@ -58,7 +58,7 @@
         </dt>
       </div>
 
-      <div class="small-12 columns">
+      <div class="small-8 columns end">
         <hr/>
 
 
@@ -116,6 +116,11 @@
             <dt>{{model.license}}</dt>
           {{/if}}
         </dl>
+      </div>
+      <div class="small-4 columns end">
+        {{#if model.imageUrl}}
+          <a href="{{model.imageUrl}}" target="_blank"><img src="{{model.imageUrl}}" /></a>
+        {{/if}}
       </div>
     </div>
   </div>

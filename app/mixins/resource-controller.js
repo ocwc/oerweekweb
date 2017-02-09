@@ -2,8 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Mixin.create({
   queryParams: ['page'],
-  years: ['2015', '2016'],
-  yearselected: '2016',
+  years: ['2015', '2016', '2017'],
+  yearselected: '2017',
 
   page: 1,
   pageCount: Ember.computed('filteredResources.content.meta.count', function(){
