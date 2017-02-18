@@ -16,9 +16,6 @@ module.exports = function(defaults) {
         'images/marker-shadow.png',
         'assets/badges/*.png'
       ]
-    },
-    sourcemaps: {
-      enabled: true
     }
   });
 

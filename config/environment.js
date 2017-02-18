@@ -35,9 +35,6 @@ module.exports = function(environment) {
     // moment: {
     //   includeTimezone: '2010-2020'
     // }
-    sentry: {
-      dsn: 'https://6701aa9a5dbd4a148bc9da204bd92242@sentry.ilol.si/8'
-    }
   };
 
   if (environment === 'development') {
@@ -51,7 +48,7 @@ module.exports = function(environment) {
     ENV['ember-simple-auth'] = {
       authorizer: 'authorizer:token',
       crossOriginWhitelist: [process.env.API_HOST],
-    };
+    }
 
     ENV['ember-simple-auth-token'] = {
       serverTokenEndpoint: 'http://localhost:8000/api-token-auth/',
@@ -64,8 +61,6 @@ module.exports = function(environment) {
       authorizationPrefix: 'JWT ',
       authorizationHeaderName: 'Authorization',
     }
-
-    ENV['sentry']['development'] = true;
   }
 
   if (environment === 'test') {
