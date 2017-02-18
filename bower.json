@@ -1,12 +1,8 @@
 {
   "name": "oerweekweb",
   "dependencies": {
-    "ember": "2.3.0",
+    "ember": "~2.10.0",
     "ember-cli-shims": "~0.1.1",
-    "ember-load-initializers": "0.1.7",
-    "ember-qunit-notifications": "0.1.0",
-    "jquery": "1.11.3",
-    "loader.js": "^3.5.0",
     "foundation-sites": "~6.1.0",
     "moment": "~2.11.1",
     "leaflet": "~0.7.7",
@@ -19,5 +15,6 @@
   "resolutions": {
     "ember": "~2.7.0",
     "jquery": "1.11.3"
+    "pickadate": "^3.5.6"
   }
 }

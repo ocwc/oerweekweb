@@ -1,78 +1,127 @@
+
+
 <div class="row">
-  <div class="small-12 box">
-    <h2>#{{model.id}} - {{model.title}}</h2>
+  <div class="small-12 columns box">
+    <div class="row">
+      <div class="small-12 columns">
+        {{#link-to 'submissions.index' (query-params postStatus='draft') class='button primary'}}Back to submissions{{/link-to}}
+      </div>
+    </div>
 
-    <dl class="box--meta">
-      <dd>Contact</dd>
-      <dt>{{model.firstname}} {{model.lastname}} (<a href="mailto:{{model.email}}">{{model.email}}</a>)</dt>
+    <div class="row">
+      <div class="small-12 columns">
+        <h2>#{{model.id}} - {{model.title}}</h2>
+      </div>
 
-      <dd>Institution</dd>
-      <dt>{{model.institution}} (<a href="{{model.institutionurl}}" target="_blank">{{model.institutionurl}}</a>)</dt>
+      <div class="small-8 columns">
+        <dl class="box--meta">
+          <dd>Contact</dd>
+          <dt>{{model.firstname}} {{model.lastname}} (<a href="mailto:{{model.email}}">{{model.email}}</a>)</dt>
 
-      <dd>City and Country</dd>
-      <dt>{{model.city}}, {{model.country}}</dt>
+          <dd>Institution</dd>
+          <dt>{{model.institution}} (<a href="{{model.institutionurl}}" target="_blank">{{model.institutionurl}}</a>)
+          </dt>
 
-      <dd>Language</dd>
-      <dt>{{model.language}}</dt>
+          <dd>City and Country</dd>
+          <dt>{{model.city}}, {{model.country}}</dt>
 
-    </dl>
+          <dd>Language</dd>
+          <dt>{{model.language}}</dt>
 
-    <hr />
-    {{#if (eq model.contributiontype 'event_local')}}
-      <h2>Local Event</h2>
-    {{else if (eq model.contributiontype 'event_online')}}
-      <h2>Online Event</h2>
-    {{else if (eq model.contributiontype 'resource')}}
-      <h2>OER Resource</h2>
-    {{else if (eq model.contributiontype 'project')}}
-      <h2>Project</h2>
-    {{/if}}
+        </dl>
+      </div>
 
-    <dl class="box--meta">
-      <dd>Title</dd>
-      <dt>{{model.title}}</dt>
+      <div class="small-4 columns box--meta box--meta--actions">
+        <dd>Current status</dd>
+        <dt>
+        <h4>{{model.postStatus}}</h4></dt>
 
-      <dd>Description</dd>
-      <dt>{{model.description}}</dt>
+        <dd>Change visibility</dd>
+        <dt class="box--meta--actions--buttons">
+          {{#if (not-eq model.postStatus 'publish')}}
+            <button class="button" {{action 'changeSubmissionStatus' model 'publish'}}>Publish</button>
+          {{else}}
+            <button class="button disabled">Publish</button>
+          {{/if}}
 
-      <dd>Link</dd>
-      <dt><a href="{{model.link}}" target="_blank">{{model.link}}</a></dt>
+          {{#if (not-eq model.postStatus 'draft')}}
+            <button class="button cyan" {{action 'changeSubmissionStatus' model 'draft'}}>Draft</button>
+          {{else}}
+            <button class="button cyan disabled">Draft</button>
+          {{/if}}
 
-      {{#if (or (eq model.contributiontype 'event_local') (eq model.contributiontype 'event_online'))}}
-        <dd>Event Type</dd>
-        <dt>{{model.localeventtype}}</dt>
+          {{#if (not-eq model.postStatus 'trash')}}
+            <button class="button secondary" {{action 'changeSubmissionStatus' model 'trash'}}>Trash</button>
+          {{else}}
+            <button class="button secondary disabled">Trash</button>
+          {{/if}}
+        </dt>
+      </div>
 
-        {{#if (or (eq model.contributiontype 'other_local') (eq model.contributiontype 'other_online'))}}
-          <dd>Other</dd>
-          <dt>{{model.eventother}}</dt>
+      <div class="small-8 columns end">
+        <hr/>
+
+
+        {{#if (eq model.contributiontype 'event_local')}}
+          <h2>Local Event</h2>
+        {{else if (eq model.contributiontype 'event_online')}}
+          <h2>Online Event</h2>
+        {{else if (eq model.contributiontype 'resource')}}
+          <h2>OER Resource</h2>
+        {{else if (eq model.contributiontype 'project')}}
+          <h2>Project</h2>
         {{/if}}
 
-        <dd>Event Time</dd>
-        <dt>{{model.datetime}}</dt>
+        <dl class="box--meta">
+          <dd>Title</dd>
+          <dt>{{model.title}}</dt>
 
-        <dd>Directions</dd>
-        <dt>{{model.directions}}</dt>
+          <dd>Description</dd>
+          <dt>{{model.description}}</dt>
 
-        <dd>Will it be archived?</dd>
-        <dt>{{model.archive}}</dt>
-      {{/if}}
+          <dd>Link</dd>
+          <dt><a href="{{model.link}}" target="_blank">{{model.link}}</a></dt>
 
-      <h3>Categories</h3>
-      <dd>Primary or Secondary Education</dd>
-      <dt>{{model.is_primary}}</dt>
+          {{#if (or (eq model.contributiontype 'event_local') (eq model.contributiontype 'event_online'))}}
+            <dd>Event Type</dd>
+            <dt>{{model.localeventtype}}</dt>
 
-      <dd>Higher Education</dd>
-      <dt>{{model.is_higher}}</dt>
+            {{#if (or (eq model.contributiontype 'other_local') (eq model.contributiontype 'other_online'))}}
+              <dd>Other</dd>
+              <dt>{{model.eventother}}</dt>
+            {{/if}}
 
-      <dd>Community and Technical Colleges</dd>
-      <dt>{{model.is_community}}</dt>
+            <dd>Event Time</dd>
+            <dt>{{model.datetime}}</dt>
 
-      {{#if model.license}}
-        <dd>License</dd>
-        <dt>{{model.license}}</dt>
-      {{/if}}
-    </dl>
+            <dd>Directions</dd>
+            <dt>{{model.directions}}</dt>
 
+            <dd>Will it be archived?</dd>
+            <dt>{{model.archive}}</dt>
+          {{/if}}
+
+          <h3>Categories</h3>
+          <dd>Primary or Secondary Education</dd>
+          <dt>{{model.is_primary}}</dt>
+
+          <dd>Higher Education</dd>
+          <dt>{{model.is_higher}}</dt>
+
+          <dd>Community and Technical Colleges</dd>
+          <dt>{{model.is_community}}</dt>
+
+          {{#if model.license}}
+            <dd>License</dd>
+            <dt>{{model.license}}</dt>
+          {{/if}}
+        </dl>
+      </div>
+      <div class="small-4 columns end">
+        {{#if model.imageUrl}}
+          <a href="{{model.imageUrl}}" target="_blank"><img src="{{model.imageUrl}}" /></a>
+        {{/if}}
+      </div>
+    </div>
   </div>
-
 </div>

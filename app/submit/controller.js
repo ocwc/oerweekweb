@@ -52,7 +52,7 @@ export default Ember.Controller.extend({
       if ( prop === 'intro' ) {
         this.set(`wizard.${prop}`, true);
       } else {
-        var model = this.get('model');
+        let model = this.get('model');
 
         model.validate({ 'on': this.get(`wizard_fields.${prop}`) }).then(({
           model,

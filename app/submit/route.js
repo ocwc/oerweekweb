@@ -16,7 +16,7 @@ export default Ember.Route.extend({
     this._super(controller, isExiting);
 
     if (isExiting) {
-      var model = controller.get('model');
+      let model = controller.get('model');
       if (model.get('isNew')) {
         model.destroyRecord();
       }
