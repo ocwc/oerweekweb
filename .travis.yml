@@ -7,13 +7,13 @@ sudo: false
 
 cache:
   directories:
-    - $HOME/.npm
-    - $HOME/.cache # includes bowers cache
+    - node_modules
 
 before_install:
   - npm config set spin false
-  - npm install -g bower phantomjs-prebuilt
+  - npm install -g bower
   - bower --version
+  - npm install phantomjs-prebuilt
   - phantomjs --version
 
 install:

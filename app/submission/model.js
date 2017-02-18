@@ -27,6 +27,7 @@ var Validations = buildValidations({
   link: [
     validator('presence', true)
   ],
+
   title: [
     validator('presence', true),
   ],
@@ -74,6 +75,4 @@ export default DS.Model.extend(Validations, {
 
   license: DS.attr('string'),
   postStatus: DS.attr('string'),
-
-  imageUrl: DS.attr('string')
 });

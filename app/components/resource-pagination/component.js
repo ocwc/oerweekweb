@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import _ from 'lodash';
+import _ from 'lodash/lodash';
 
 export default Ember.Component.extend({
   showPageNextMargin: Ember.computed('page', 'pageCount', function() {
@@ -33,8 +33,9 @@ export default Ember.Component.extend({
 
   getNextPages: Ember.computed('page', 'pageCount', function() {
     let page = this.get('page'),
-        pageCount = this.get('pageCount'),
-        showNumPages = _.max([3, 6 - page]);
+        pageCount = this.get('pageCount');
+
+    var showNumPages = _.max([3, 6 - page]);
 
     return _.range(page+1, _.min([page+showNumPages, pageCount+1]));
   }),

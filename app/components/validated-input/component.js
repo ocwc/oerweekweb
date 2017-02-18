@@ -1,13 +1,20 @@
+/**
+ * Copyright 2016, Yahoo! Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
+
+// BEGIN-SNIPPET validated-input
 import Ember from 'ember';
 
 const {
+  isEmpty,
   computed,
-  defineProperty
+  defineProperty,
 } = Ember;
 
 export default Ember.Component.extend({
   classNames: ['validated-input'],
-  classNameBindings: ['showErrorClass:has-error', 'isValid:has-success'],
+  classNameBindings: ['showErrorClass:has-error', 'isValid:has-success', 'valuePath'],
   model: null,
   value: null,
   type: 'text',
@@ -18,26 +25,24 @@ export default Ember.Component.extend({
 
   init() {
     this._super(...arguments);
-    let valuePath = this.get('valuePath');
-
-    defineProperty(this, 'validation', computed.readOnly(`model.validations.attrs.${valuePath}`));
+    var valuePath = this.get('valuePath');
+    defineProperty(this, 'validation', computed.oneWay(`model.validations.attrs.${valuePath}`));
     defineProperty(this, 'value', computed.alias(`model.${valuePath}`));
   },
 
-  notValidating: computed.not('validation.isValidating').readOnly(),
-  hasContent: computed.notEmpty('value').readOnly(),
-  hasWarnings: computed.notEmpty('validation.warnings').readOnly(),
-  isValid: computed.and('hasContent', 'validation.isTruelyValid').readOnly(),
-  shouldDisplayValidations: computed.or('showValidations', 'didValidate', 'hasContent').readOnly(),
+  notValidating: computed.not('validation.isValidating'),
+  didValidate: computed.oneWay('targetObject.didValidate'),
+  hasContent: computed.notEmpty('value'),
+  isValid: computed.and('hasContent', 'validation.isValid', 'notValidating'),
+  isInvalid: computed.oneWay('validation.isInvalid'),
+  showErrorClass: computed.and('notValidating', 'showMessage', 'hasContent', 'validation'),
+  showErrorMessage: computed('validation.isDirty', 'isInvalid', 'didValidate', function() {
+    return (this.get('validation.isDirty') || this.get('didValidate')) && this.get('isInvalid');
+  }),
 
-  showErrorClass: computed.and('notValidating', 'showErrorMessage', 'hasContent', 'validation').readOnly(),
-  showErrorMessage: computed.and('shouldDisplayValidations', 'validation.isInvalid').readOnly(),
-  showWarningMessage: computed.and('shouldDisplayValidations', 'hasWarnings', 'isValid').readOnly(),
-
-  focusOut() {
-    this._super(...arguments);
-    this.set('showValidations', true);
-  },
+  showWarningMessage: computed('validation.isDirty', 'validation.warnings.[]', 'isValid', 'didValidate', function() {
+    return (this.get('validation.isDirty') || this.get('didValidate')) && this.get('isValid') && !isEmpty(this.get('validation.warnings'));
+  }),
 
   actions: {
     valueChanged(val) {
@@ -50,4 +55,4 @@ export default Ember.Component.extend({
   }
 
 });
-
+// END-SNIPPET

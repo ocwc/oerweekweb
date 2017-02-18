@@ -1,0 +1,20 @@
+{{#each model as |openphoto|}}
+  <h2>{{openphoto.title}}</h2>
+  <dl>
+    <dt>URL:</dt>
+    <dd>{{openphoto.url}}</dd>
+    <dt>Country, City</dt>
+    <dd>{{openphoto.country}}, {{openphoto.city}}</dd>
+    <dt>Status</dt>
+    <dd>{{openphoto.status}}</dd>
+  </dl>
+
+  {{#if session.isAuthenticated}}
+    <button {{action "approveOpenPhoto" openphoto}}>Approve</button>
+    <button {{action "rejectOpenPhoto" openphoto}}>Reject</button>
+  {{/if}}
+{{/each}}
+
+{{#link-to "openphotos.submit"}}Submit{{/link-to}}
+
+{{outlet}}

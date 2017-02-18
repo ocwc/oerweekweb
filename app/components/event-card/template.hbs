@@ -13,12 +13,10 @@
     <div class="box--divider"></div>
     <div class="box--meta">
       <div>
-
-        {{#if (or (eq resource.event_type 'webinar') (eq resource.event_type 'online'))}}
-          <span class="box--meta--icon"><i class="icon-calendar"></i></span>
-          <span class="box--meta--text">{{moment-format resource.event_time 'YYYY-MM-DD HH:mm a'}}</span>
-        {{else if resource.event_source_datetime}}
-          <span class="box--meta--icon"><i class="icon-calendar"></i></span>
+        <span class="box--meta--icon"><i class="icon-calendar"></i></span>
+        {{#if (or (eq model.event_type 'webinar') (eq model.event_type 'online'))}}
+          {{moment-format resource.event_time 'YYYY-MM-DD HH:mm a'}}
+        {{else}}
           <span class="box--meta--text">{{resource.event_source_datetime}}</span>
         {{/if}}
 

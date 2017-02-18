@@ -1,0 +1,13 @@
+{{#if isSubmitted }}
+  <h1>Thank you for your submission. We'll review it shortly.</h1>
+{{else}}
+  {{#form-for model}}
+    {{input-for "url"}}
+    {{input-for "country"}}
+    {{input-for "city"}}
+
+    <button {{action "createOpenPhoto"}}>Submit</button>
+  {{/form-for}}
+{{/if}}
+
+{{outlet}}

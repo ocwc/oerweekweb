@@ -87,7 +87,7 @@ module.exports = function(environment) {
     ENV['ember-simple-auth'] = {
       authorizer: 'authorizer:token',
       crossOriginWhitelist: [process.env.API_HOST],
-    };
+    }
 
     ENV['ember-simple-auth-token'] = {
       serverTokenEndpoint: 'https://api.openeducationweek.org/api-token-auth/',

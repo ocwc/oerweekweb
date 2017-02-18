@@ -1,10 +1,11 @@
 {
   "predef": [
+    "server",
     "document",
     "window",
     "-Promise",
-    "twttr",
-    "moment"
+    "moment",
+    "twttr"
   ],
   "browser": true,
   "boss": true,
