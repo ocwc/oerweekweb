@@ -32,6 +32,13 @@
             </span>
           </dt>
         {{else}}
+          {{#if model.event_time}}
+            {{moment-format model.event_time 'YYYY-MM-DD HH:mm a'}}
+
+            <span class='box--meta--notice'>
+                Please double check time and location on the site of the event.
+            </span>
+          {{else}}
           <dt>
             {{model.event_source_datetime}}<br />
           </dt>
@@ -39,6 +46,7 @@
           <dt>
             {{model.event_source_timezone}}
           </dt>
+          {{/if}}
         {{/if}}
       </dl>
     </div>
