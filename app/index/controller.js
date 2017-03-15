@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  localDate: '2016-03-07',
-  onlineDate: '2016-03-07',
+  localDate: '2017-03-27',
+  onlineDate: '2017-03-27',
 
   filteredLocalEvent: Ember.computed('localDate', 'model', function(){
     return this.store.query('event', {
