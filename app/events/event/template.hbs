@@ -51,6 +51,20 @@
       </dl>
     </div>
 
+    {{#if model.country}}
+      <div class="box">
+        <dl class="box--meta">
+          <dd><i class="icon-location"></i> Location</dd>
+          <dt>
+            {{#if model.city}}
+              {{model.city}},
+            {{/if}}
+
+            {{model.country}}
+          </dt>
+        </dl>
+      </div>
+    {{/if}}
   </div>
 
   <div class="small-8 columns">
