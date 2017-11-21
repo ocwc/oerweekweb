@@ -42,7 +42,8 @@ module.exports = function(environment) {
       enabled: false
     };
 
-    ENV.APP.API_HOST = 'http://localhost:8000';
+    // ENV.APP.API_HOST = 'http://localhost:8000';
+    ENV.APP.API_HOST = 'https://api.openeducationweek.org';
     ENV.APP.API_NAMESPACE = 'api';
 
     ENV['ember-simple-auth'] = {
