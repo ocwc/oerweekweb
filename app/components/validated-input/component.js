@@ -4,15 +4,13 @@
  */
 
 // BEGIN-SNIPPET validated-input
-import Ember from 'ember';
+import { oneWay, alias, not, notEmpty, and } from '@ember/object/computed';
 
-const {
-  isEmpty,
-  computed,
-  defineProperty,
-} = Ember;
+import Component from '@ember/component';
+import { isEmpty } from '@ember/utils';
+import { defineProperty, computed } from '@ember/object';
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: ['validated-input'],
   classNameBindings: ['showErrorClass:has-error', 'isValid:has-success', 'valuePath'],
   model: null,
@@ -26,16 +24,16 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
     var valuePath = this.get('valuePath');
-    defineProperty(this, 'validation', computed.oneWay(`model.validations.attrs.${valuePath}`));
-    defineProperty(this, 'value', computed.alias(`model.${valuePath}`));
+    defineProperty(this, 'validation', oneWay(`model.validations.attrs.${valuePath}`));
+    defineProperty(this, 'value', alias(`model.${valuePath}`));
   },
 
-  notValidating: computed.not('validation.isValidating'),
-  didValidate: computed.oneWay('targetObject.didValidate'),
-  hasContent: computed.notEmpty('value'),
-  isValid: computed.and('hasContent', 'validation.isValid', 'notValidating'),
-  isInvalid: computed.oneWay('validation.isInvalid'),
-  showErrorClass: computed.and('notValidating', 'showMessage', 'hasContent', 'validation'),
+  notValidating: not('validation.isValidating'),
+  didValidate: oneWay('targetObject.didValidate'),
+  hasContent: notEmpty('value'),
+  isValid: and('hasContent', 'validation.isValid', 'notValidating'),
+  isInvalid: oneWay('validation.isInvalid'),
+  showErrorClass: and('notValidating', 'showMessage', 'hasContent', 'validation'),
   showErrorMessage: computed('validation.isDirty', 'isInvalid', 'didValidate', function() {
     return (this.get('validation.isDirty') || this.get('didValidate')) && this.get('isInvalid');
   }),

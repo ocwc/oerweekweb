@@ -1,13 +1,14 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   didUpdateAttrs() {
     this._super(...arguments);
 
     try {
       let offset_top = this.$().closest('.container').offset().top;
 
-      Ember.$('body').animate({
+      $('body').animate({
         scrollTop: offset_top
       });
     } catch (e) {

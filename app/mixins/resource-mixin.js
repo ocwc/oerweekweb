@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Mixin from '@ember/object/mixin';
 import DS from 'ember-data';
 
-export default Ember.Mixin.create({
+export default Mixin.create({
   title: DS.attr('string'),
   post_type: DS.attr('string'),
   post_status: DS.attr('string'),

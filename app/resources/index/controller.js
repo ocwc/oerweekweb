@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
 import ResourceControllerMixin from '../../mixins/resource-controller';
 
-export default Ember.Controller.extend(ResourceControllerMixin, {
+export default Controller.extend(ResourceControllerMixin, {
   modelName: 'resource',
 });

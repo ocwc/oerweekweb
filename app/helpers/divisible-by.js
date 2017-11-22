@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function divisibleBy(params/*, hash*/) {
   let index = params[0] + 1,
@@ -10,4 +10,4 @@ export function divisibleBy(params/*, hash*/) {
   return false;
 }
 
-export default Ember.Helper.helper(divisibleBy);
+export default helper(divisibleBy);

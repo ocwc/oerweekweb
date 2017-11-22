@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {{#if isHomepage}}
   <div class="home-first--container">
     {{main-navigation rootURL=rootURL}}
@@ -8,6 +9,7 @@
 {{/if}}
 
 {{outlet}}
+
 <footer>
   <div class="row">
     <div class="footer--navigation clearfix">
@@ -68,3 +70,10 @@
     </div>
   </div>
 </footer>
+=======
+{{!-- The following component displays Ember's default welcome message. --}}
+{{welcome-page}}
+{{!-- Feel free to remove this! --}}
+
+{{outlet}}
+>>>>>>> 589bbde... message

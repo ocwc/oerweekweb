@@ -1,18 +1,19 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import Mixin from '@ember/object/mixin';
 
-export default Ember.Mixin.create({
+export default Mixin.create({
   queryParams: ['page'],
   years: ['2015', '2016'],
   yearselected: '2016',
 
   page: 1,
-  pageCount: Ember.computed('filteredResources.content.meta.count', function(){
+  pageCount: computed('filteredResources.content.meta.count', function(){
     if ( this.get('filteredResources.content.meta.count') ) {
       return Math.ceil(this.get('filteredResources.content.meta.count') / 9);
     }
   }),
 
-  filteredResources: Ember.computed('yearselected', 'page', 'model', function() {
+  filteredResources: computed('yearselected', 'page', 'model', function() {
     let page = this.get('page'),
         year = this.get('yearselected');
 

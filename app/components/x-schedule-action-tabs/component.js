@@ -1,13 +1,15 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
+import Component from '@ember/component';
+import EmberObject from '@ember/object';
 
-let TabDate = Ember.Object.extend({
+let TabDate = EmberObject.extend({
   value: '',
   text: '',
   isActive: false
 });
 
-export default Ember.Component.extend({
-  dates: Ember.A([
+export default Component.extend({
+  dates: A([
       TabDate.create({value: '2016-03-07', text: 'Monday, 7.3',     isActive: true}),
       TabDate.create({value: '2016-03-08', text: 'Tuesday, 8.3',    isActive: false}),
       TabDate.create({value: '2016-03-09', text: 'Wednesday, 9.3',  isActive: false}),

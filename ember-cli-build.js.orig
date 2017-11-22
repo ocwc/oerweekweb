@@ -4,6 +4,7 @@
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
+<<<<<<< HEAD
   var app = new EmberApp(defaults, {
     'ember-cli-foundation-6-sass': {
       'foundationJs': 'all'
@@ -18,6 +19,10 @@ module.exports = function(defaults) {
         'assets/badges/*.png'
       ]
     }
+=======
+  let app = new EmberApp(defaults, {
+    // Add options here
+>>>>>>> 589bbde... message
   });
 
   return app.toTree();

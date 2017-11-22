@@ -1,8 +1,11 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import { later } from '@ember/runloop';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import ENV from 'oerweekweb/config/environment';
 
-export default Ember.Component.extend({
-  ajax: Ember.inject.service(),
+export default Component.extend({
+  ajax: service(),
   tweets: [],
   hasTwttr: false,
 
@@ -29,7 +32,7 @@ export default Ember.Component.extend({
 
   checkForTwttr() {
     if ( typeof window.twttr === typeof undefined ) {
-      Ember.run.later(this, this.checkForTwttr, 500);
+      later(this, this.checkForTwttr, 500);
     } else {
       this.set('hasTwttr', true);
     }
@@ -44,7 +47,7 @@ export default Ember.Component.extend({
   willClearRender: function() {
     this._super(...arguments);
     if ( this._insertedNode ) {
-      Ember.$(this._insertedNode).remove();
+      $(this._insertedNode).remove();
     }
   }
 

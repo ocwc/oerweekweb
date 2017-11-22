@@ -1,10 +1,11 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   localDate: '2016-03-07',
   onlineDate: '2016-03-07',
 
-  filteredLocalEvent: Ember.computed('localDate', 'model', function(){
+  filteredLocalEvent: computed('localDate', 'model', function(){
     return this.store.query('event', {
       'event_type': 'local',
       'page_size': 99,
@@ -12,7 +13,7 @@ export default Ember.Controller.extend({
     });
   }),
 
-  filteredOnlineEvent: Ember.computed('onlineDate', 'model', function(){
+  filteredOnlineEvent: computed('onlineDate', 'model', function(){
     return this.store.query('event', {
       'event_type': 'online',
       'page_size': 99,
@@ -20,7 +21,7 @@ export default Ember.Controller.extend({
     });
   }),
 
-  slicedOpenPhoto: Ember.computed('model', function(){
+  slicedOpenPhoto: computed('model', function(){
     return this.get('model').slice(0, 3);
   }),
 

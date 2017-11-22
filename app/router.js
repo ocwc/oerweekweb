@@ -1,9 +1,12 @@
-import Ember from 'ember';
+import { get } from '@ember/object';
+import { scheduleOnce } from '@ember/runloop';
+import { inject as service } from '@ember/service';
+import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
 
-const Router = Ember.Router.extend({
+const Router = EmberRouter.extend({
   location: config.locationType,
-  metrics: Ember.inject.service(),
+  metrics: service(),
 
   redirects: {
     'what-is-open-education': '/page/what-is-open-education',
@@ -20,11 +23,11 @@ const Router = Ember.Router.extend({
   },
 
   _trackPage() {
-    Ember.run.scheduleOnce('afterRender', this, () => {
+    scheduleOnce('afterRender', this, () => {
       const page = document.location.pathname;
       const title = this.getWithDefault('currentRouteName', 'unknown');
 
-      Ember.get(this, 'metrics').trackPage({ page, title });
+      get(this, 'metrics').trackPage({ page, title });
     });
   },
   rootURL: config.rootURL

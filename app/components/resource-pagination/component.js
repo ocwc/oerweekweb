@@ -1,8 +1,10 @@
-import Ember from 'ember';
+import { gt } from '@ember/object/computed';
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 import _ from 'lodash/lodash';
 
-export default Ember.Component.extend({
-  showPageNextMargin: Ember.computed('page', 'pageCount', function() {
+export default Component.extend({
+  showPageNextMargin: computed('page', 'pageCount', function() {
     let page = this.get('page'),
         pageCount = this.get('pageCount');
 
@@ -11,7 +13,7 @@ export default Ember.Component.extend({
     }
   }),
 
-  showPagePrevMargin: Ember.computed('page', 'pageCount', function() {
+  showPagePrevMargin: computed('page', 'pageCount', function() {
     let page = this.get('page');
 
     if ( page - 2 > 2 ) {
@@ -19,19 +21,19 @@ export default Ember.Component.extend({
     }
   }),
 
-  hasPreviousPage: Ember.computed.gt('page', 1),
-  hasNextPage: Ember.computed('page', 'pageCount', function() {
+  hasPreviousPage: gt('page', 1),
+  hasNextPage: computed('page', 'pageCount', function() {
     return this.get('page') < this.get('pageCount');
   }),
 
-  getPreviousPages: Ember.computed('page', function() {
+  getPreviousPages: computed('page', function() {
     let page = this.get('page');
     if ( page > 1 ) {
       return _.range(_.max([page - 2, 1]), page);
     }
   }),
 
-  getNextPages: Ember.computed('page', 'pageCount', function() {
+  getNextPages: computed('page', 'pageCount', function() {
     let page = this.get('page'),
         pageCount = this.get('pageCount');
 

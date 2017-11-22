@@ -1,5 +1,6 @@
-import Ember from 'ember';
-export default Ember.Component.extend({
+import $ from 'jquery';
+import Component from '@ember/component';
+export default Component.extend({
   _insertScript(src) {
     var insertedNode;
 
@@ -27,7 +28,7 @@ export default Ember.Component.extend({
   willClearRender: function() {
     this._super(...arguments);
     if ( this._insertedNode ) {
-      Ember.$(this._insertedNode).remove();
+      $(this._insertedNode).remove();
     }
   }
 });

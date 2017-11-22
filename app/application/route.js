@@ -1,9 +1,10 @@
-import Ember from 'ember';
+import { makeArray } from '@ember/array';
+import Route from '@ember/routing/route';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
-export default Ember.Route.extend(ApplicationRouteMixin, {
+export default Route.extend(ApplicationRouteMixin, {
   title: function(tokens) {
-   tokens = Ember.makeArray(tokens);
+   tokens = makeArray(tokens);
    tokens.push('Open Education Week');
    return tokens.join(' | ');
   },

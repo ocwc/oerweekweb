@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
   model() {
     return this.store.createRecord('submission', {
       'datetime': new Date(2017, 2, 27) // also update date in controller.resetSubmission();
