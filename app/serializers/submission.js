@@ -1,4 +1,5 @@
 import DRFSerializer from './drf';
+import moment from 'moment';
 
 export default DRFSerializer.extend({
     serialize(/* snapshot, options*/) {

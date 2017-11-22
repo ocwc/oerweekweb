@@ -9,7 +9,7 @@ export default Controller.extend({
       var credentials = this.getProperties('identification', 'password'),
         authenticator = 'authenticator:jwt';
 
-        console.log(this.getProperties('identification', 'password'));
+        // console.log(this.getProperties('identification', 'password'));
       this.get('session').authenticate(authenticator, credentials);
     },
   }

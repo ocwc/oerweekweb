@@ -12,7 +12,7 @@ export default Component.extend({
         scrollTop: offset_top
       });
     } catch (e) {
-      
+      console.log(e);
     }
   }
 });

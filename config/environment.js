@@ -1,9 +1,9 @@
 /* eslint-env node */
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
-    modulePrefix: 'my-app',
+    modulePrefix: 'oerweekweb',
     environment,
     rootURL: '/',
     locationType: 'auto',
@@ -22,6 +22,7 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+
     typekit: {
       kitId: 'nyd6mie',
     },
@@ -34,9 +35,10 @@ module.exports = function(environment) {
         }
       },
     ],
-    // moment: {
-    //   includeTimezone: '2010-2020'
-    // }
+
+    fastboot: {
+      hostWhitelist: [/^localhost:\d+$/]
+    },
   };
 
   if (environment === 'development') {
@@ -83,7 +85,7 @@ module.exports = function(environment) {
 
     ENV['ember-simple-auth'] = {
       authorizer: 'authorizer:token',
-      crossOriginWhitelist: [process.env.API_HOST],
+      crossOriginWhitelist: [process.env.API_HOST]
     }
 
     ENV['ember-simple-auth-token'] = {
