@@ -12,24 +12,24 @@ const Router = EmberRouter.extend({
     'what-is-open-education': '/page/what-is-open-education',
   },
 
-  willTransition() {
-    this._super(...arguments);
-    window.scrollTo(0,0);
-  },
-
   didTransition() {
     this._super(...arguments);
-    this._trackPage();
+    // this._trackPage();
   },
 
   _trackPage() {
     scheduleOnce('afterRender', this, () => {
-      const page = document.location.pathname;
-      const title = this.getWithDefault('currentRouteName', 'unknown');
+      const page = this.get('url');
+
+      let title = this.get('headData').get('title');
+      if ( ! title ) {
+        title = this.getWithDefault('currentRouteName', 'unknown');
+      }
 
       get(this, 'metrics').trackPage({ page, title });
     });
   },
+
   rootURL: config.rootURL
 });
 
