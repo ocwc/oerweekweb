@@ -59,8 +59,8 @@ module.exports = function (environment) {
       serverTokenEndpoint: 'http://localhost:8000/api-token-auth/',
       serverTokenRefreshEndpoint: 'http://localhost:8000/api-token-refresh/',
       refreshAccessTokens: true,
-      // timeFactor: 7200,
-      // refreshLeeway: 900,
+      timeFactor: 7200,
+      refreshLeeway: 900,
 
       tokenPropertyName: 'token',
       authorizationPrefix: 'JWT ',
